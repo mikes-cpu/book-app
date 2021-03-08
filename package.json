@@ -1,0 +1,11 @@
+{
+  "name": "book-app",
+  "version": "1.0.0",
+  "description": "App where you can keep track of your reads",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mike Sanins",
+  "license": "ISC"
+}
