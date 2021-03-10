@@ -1,0 +1,64 @@
+.sectionLayout1__container {
+  margin: 4%;
+  .container__header {
+    display: flex;
+    margin-bottom: 250px;
+
+    h1 {
+      margin-right: 40px;
+    }
+
+    p {
+      transform: translateY(22px);
+      width: 300px;
+      font-size: 30px;
+      opacity: 0.6;
+    }
+  }
+  .container__main {
+    display: flex;
+    justify-content: space-between;
+
+    .main__search {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      width: 25%;
+
+      h2 {
+        margin-bottom: 10px;
+        font-size: 40px;
+      }
+    }
+    .main__user {
+      margin-right: 10%;
+      width: 25%;
+
+      h2 {
+        margin-bottom: 10px;
+        font-size: 35px;
+        opacity: 0.6;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-weight: 600;
+          margin-bottom: 5px;
+        }
+
+        input {
+          margin-bottom: 5px;
+          padding: 10px;
+        }
+
+        button {
+          font-weight: 600;
+          margin-bottom: 5px;
+          padding: 5px;
+        }
+      }
+    }
+  }
+}

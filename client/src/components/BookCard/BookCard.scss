@@ -1,0 +1,20 @@
+.bookCard__container {
+  display: flex;
+  flex-direction: row;
+  // border: 1px solid black;
+  // width: 50%;
+  height: 350px;
+  .container__thumbnail {
+    display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    img {
+      object-fit: contain;
+      padding: 20px;
+    }
+  }
+  .container__info {
+    padding: 40px;
+  }
+}
