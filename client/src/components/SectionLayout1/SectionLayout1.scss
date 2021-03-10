@@ -18,6 +18,7 @@
   .container__main {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 80px;
 
     .main__search {
       display: flex;
@@ -59,6 +60,38 @@
           padding: 5px;
         }
       }
+    }
+  }
+
+  .container__searchResults {
+    display: flex;
+    justify-content: space-between;
+    .searchResults__bookList {
+      width: 40%;
+    }
+    .searchResults__links {
+      display: flex;
+      flex-direction: column;
+      h2 {
+        font-size: 60px;
+        width: 400px;
+        margin-bottom: 20px;
+        opacity: 0.8;
+      }
+
+      p {
+        font-size: 20px;
+        opacity: 0.6;
+        width: 300px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .searchResults_links__fixed {
+      position: fixed;
+      right: 120px;
+      bottom: 200px;
+      transition: width 2s, height 2s, transform 2s;
     }
   }
 }

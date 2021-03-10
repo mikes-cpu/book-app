@@ -14,11 +14,16 @@ function BookCard({ book }) {
             <p>{book.volumeInfo.title}</p>
             <h2>Author:</h2>
             <p>{book.volumeInfo.authors}</p>
-            <h2>Categories:</h2>
+            {/* <h2>Categories:</h2>
             <p>{book.volumeInfo.categories}</p>
             <h2>Publisher:</h2>
             <p>{book.volumeInfo.publisher}</p>
-            <button>Add</button>
+            <button>Add</button> */}
+          </div>
+          <div className="container__buttons">
+            <button className="button__wantTo">WANT TO</button>
+            <button className="button__reading">READING</button>
+            <button className="button__read">READ</button>
           </div>
         </div>
       </div>

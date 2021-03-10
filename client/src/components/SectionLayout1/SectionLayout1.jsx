@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BookCardList from "../BookCardList";
 import SearchBox from "../SearchBox.js/SearchBox";
 import "./SectionLayout1.scss";
 
 function SectionLayout1({ setSearch, apiResponse }) {
+  const [isFixed, setIsFixed] = useState("");
+
+  const scrollHandler = () => {
+    let position = window.pageYOffset;
+    console.log(position);
+    let className = "";
+    if (position >= 1400) {
+      setIsFixed("searchResults_links__fixed");
+    } else {
+      setIsFixed("");
+    }
+
+    return className;
+  };
+
+  window.addEventListener("scroll", scrollHandler);
+
+  useEffect(() => {}, []);
+
   return (
     <>
       <div className="sectionLayout1">
@@ -30,7 +49,21 @@ function SectionLayout1({ setSearch, apiResponse }) {
               </form>
             </div>
           </div>
-          <BookCardList apiResponse={apiResponse} />
+          <div className="container__searchResults">
+            <div className="searchResults__bookList">
+              <BookCardList apiResponse={apiResponse} />
+            </div>
+            <div className={`searchResults__links ${isFixed}`}>
+              <h2>MARK YOUR BOOKS</h2>
+              <p>
+                "USE THE BUTTONS NEXT TO YOUR SEARCH ITEM TO MARK THEM OF THEIR
+                READ STATUS"
+              </p>
+              <button>READ</button>
+              <button>READING</button>
+              <button>WANT TO</button>
+            </div>
+          </div>
         </div>
       </div>
     </>
