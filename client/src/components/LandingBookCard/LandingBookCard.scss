@@ -1,0 +1,36 @@
+.landingBookCard__container {
+  border: 1px solid #333;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  .container__thumbnail {
+    img {
+      margin-right: 20px;
+    }
+  }
+  .container__info {
+    margin-right: 40px;
+    width: 200px;
+  }
+
+  .container__buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    button {
+      padding: 15px;
+      border-radius: 10%;
+      font-weight: 600;
+    }
+    .button__wantTo {
+      background-color: #ff5d5d;
+    }
+    .button__reading {
+      background-color: #f5bc52;
+    }
+    .button__read {
+      background-color: #a0ff60;
+    }
+  }
+}

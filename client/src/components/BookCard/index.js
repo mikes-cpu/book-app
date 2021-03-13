@@ -1,3 +1,3 @@
-import bookCard from "./BookCard";
+import readBookCard from "./ReadBookCard";
 
-export default bookCard;
+export default readBookCard;

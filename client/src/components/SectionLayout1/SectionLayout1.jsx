@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import BookCardList from "../BookCardList";
+import { Link } from "@reach/router";
 import SearchBox from "../SearchBox.js/SearchBox";
 import "./SectionLayout1.scss";
+import LandingBookCardList from "../LandingBookCardList";
 
 function SectionLayout1({ setSearch, apiResponse }) {
   const [isFixed, setIsFixed] = useState("");
@@ -51,7 +52,7 @@ function SectionLayout1({ setSearch, apiResponse }) {
           </div>
           <div className="container__searchResults">
             <div className="searchResults__bookList">
-              <BookCardList apiResponse={apiResponse} />
+              <LandingBookCardList apiResponse={apiResponse} />
             </div>
             <div className={`searchResults__links ${isFixed}`}>
               <h2>MARK YOUR BOOKS</h2>
@@ -59,9 +60,15 @@ function SectionLayout1({ setSearch, apiResponse }) {
                 "USE THE BUTTONS NEXT TO YOUR SEARCH ITEM TO MARK THEM OF THEIR
                 READ STATUS"
               </p>
-              <button>READ</button>
-              <button>READING</button>
-              <button>WANT TO</button>
+              <Link to="/read-books">
+                <button>READ</button>
+              </Link>
+              <Link to="/reading-books">
+                <button>READING</button>
+              </Link>
+              <Link to="/want-to-books">
+                <button>WANT TO</button>
+              </Link>
             </div>
           </div>
         </div>

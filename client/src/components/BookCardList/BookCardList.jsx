@@ -1,18 +1,19 @@
 import React from "react";
-import "./BookCardList.scss";
 import BookCard from "../BookCard/BookCard";
+import "./BookCardList.scss";
 
-function BookCardList({ apiResponse }) {
-  return !apiResponse ? (
+function BookCardList({ allBooks, setSelectedBook }) {
+  console.log(allBooks);
+  return !allBooks ? (
     <>
-      <h1>Please enter something...</h1>
+      <h2>Please add some read books</h2>
     </>
   ) : (
     <>
       <div className="bookCardList">
         <div className="bookCardList__container">
-          {apiResponse.map((book) => (
-            <BookCard book={book} />
+          {allBooks.map((book) => (
+            <BookCard setSelectedBook={setSelectedBook} book={book} />
           ))}
         </div>
       </div>

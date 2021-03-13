@@ -1,5 +1,5 @@
 import React from "react";
-import BookCardList from "../../components/BookCardList";
+import BookCardList from "../../components/LandingBookCardList";
 import HeroSection from "../../components/HeroSection/HeroSection";
 import SearchBox from "../../components/SearchBox.js/SearchBox";
 import SectionLayout1 from "../../components/SectionLayout1/SectionLayout1";

@@ -11,12 +11,16 @@ connectDB();
 const cors = require("cors");
 app.use(cors());
 
-const bodyParser = require("body-parser");
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded());
 
 // http requests
-const googleApiRoute = require("./routes/google-api");
-app.use("/addBook", googleApiRoute);
+app.get("/", (req, res) => {
+  res.send("/ endpoint works");
+});
+
+const book = require("./routes/book");
+app.use("/book", book);
 // server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
