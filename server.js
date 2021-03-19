@@ -21,6 +21,9 @@ app.get("/", (req, res) => {
 
 const book = require("./routes/book");
 app.use("/book", book);
+
+const auth = require("./routes/auth");
+app.use("/api/user", auth);
 // server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

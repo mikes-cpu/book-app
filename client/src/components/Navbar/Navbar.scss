@@ -1,0 +1,35 @@
+@import "../../variables.scss";
+
+.navbar__container__horizontal {
+  margin: $container-margin;
+  // position: fixed;
+  // right: 0;
+  top: 2.5rem;
+  width: 100%;
+  margin-left: 10rem;
+
+  button {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-weight: $font-weight-bold;
+    border: none;
+    width: 15rem;
+    box-shadow: 0 5px 5px rgba($color: #000000, $alpha: 0.5);
+  }
+
+  .buttons__home {
+    margin-right: 3rem;
+  }
+  .buttons__read {
+    background-color: $read-color;
+    margin-right: 3rem;
+  }
+  .buttons__reading {
+    background-color: $reading-color;
+    margin-right: 3rem;
+  }
+  .buttons__want-to   {
+    background-color: $want-to-color;
+  }
+}

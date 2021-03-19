@@ -1,36 +1,63 @@
+@import "../../variables.scss";
+
 .landingBookCard__container {
-  border: 1px solid #333;
-  padding: 20px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.5);
+  height: 30rem;
+  padding: 50px;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+
   .container__thumbnail {
     img {
-      margin-right: 20px;
+      height: 100%;
+      width: 20rem;
+      object-fit: cover;
     }
   }
+
   .container__info {
-    margin-right: 40px;
-    width: 200px;
-  }
+      padding: 4rem 4rem;
+      overflow: hidden;
+      .info__title {
+        margin-bottom: 2rem;
+        font-weight: 600;
+        font-size: 3rem;
+      }
+      .info__author {
+        font-size: 2rem;
 
-  .container__buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+      }
+    }
+  
+    .container__buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+ 
+      button {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        border-radius: .5rem;
+        font-weight: $font-weight-medium;
+        border: none;
+        width: 15rem;
+        box-shadow: 0 5px 5px rgba($color: #000000, $alpha: 0.5);
 
-    button {
-      padding: 15px;
-      border-radius: 10%;
-      font-weight: 600;
+        background-color: rgb(43, 43, 43);
+        color: #333;
+        border: 1px solid #333;
+      }
+      .button__wantTo {
+    background-color: $want-to-color;
+      }
+      .button__reading {
+    background-color: $reading-color;
+      }
+      .button__read {
+    background-color: $read-color;
+      }
     }
-    .button__wantTo {
-      background-color: #ff5d5d;
-    }
-    .button__reading {
-      background-color: #f5bc52;
-    }
-    .button__read {
-      background-color: #a0ff60;
-    }
-  }
 }

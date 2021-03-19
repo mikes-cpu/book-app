@@ -1,16 +1,29 @@
-import React from "react";
-import BookCardList from "../../components/LandingBookCardList";
-import HeroSection from "../../components/HeroSection/HeroSection";
+import { Link } from "@reach/router";
+import React, { useEffect, useState } from "react";
+import LandingBookCardList from "../../components/LandingBookCardList";
+import Navbar from "../../components/Navbar/Navbar";
 import SearchBox from "../../components/SearchBox.js/SearchBox";
-import SectionLayout1 from "../../components/SectionLayout1/SectionLayout1";
+import arrow from "../../img/arrow.png";
 import "./Home.scss";
 
-function Home({ setSearch, apiResponse }) {
+function Home({ apiResponse, setSearch }) {
   return (
-    <div>
-      <HeroSection />
-      <SectionLayout1 setSearch={setSearch} apiResponse={apiResponse} />
-    </div>
+    <>
+      <div className="home">
+        <div className="home__container">
+          <div className="container__header">
+            <h1>KOOB </h1>
+            <h3>"START TAKING NOTES TODAY".</h3>
+            <Navbar />
+          </div>
+          <div className="container__search-section">
+            {/* <h4 className="search-section__header">SEARCH FOR BOOKS HERE!</h4> */}
+            <SearchBox setSearch={setSearch} />
+            <LandingBookCardList apiResponse={apiResponse} />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 

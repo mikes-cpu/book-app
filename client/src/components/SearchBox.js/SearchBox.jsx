@@ -16,6 +16,7 @@ function SearchBox({ setSearch }) {
             <input
               type="text"
               onInput={(event) => setInput(event.target.value)}
+              placeholder="NAME YOUR BOOK..."
             />
             <button
               onClick={(event) => {

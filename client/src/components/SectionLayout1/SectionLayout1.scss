@@ -4,16 +4,8 @@
     display: flex;
     margin-bottom: 250px;
 
-    h1 {
-      margin-right: 40px;
-    }
 
-    p {
-      transform: translateY(22px);
-      width: 300px;
-      font-size: 30px;
-      opacity: 0.6;
-    }
+
   }
   .container__main {
     display: flex;
@@ -79,7 +71,7 @@
         opacity: 0.8;
       }
 
-      p {
+      h3 {
         font-size: 20px;
         opacity: 0.6;
         width: 300px;

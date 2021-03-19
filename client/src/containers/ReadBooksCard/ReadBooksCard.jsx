@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./ReadBooksCard.scss";
 import axios from "axios";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
+import Navbar from "../../components/Navbar/Navbar";
 
 function ReadBooksCard({ selectedBook }) {
   const [notes, setNotes] = useState(
@@ -9,10 +10,11 @@ function ReadBooksCard({ selectedBook }) {
       ? "Press the edit button to start writing notes for this book"
       : selectedBook.notes
   );
-  const [editClicked, setEditclicked] = useState(false);
+  const [editClicked, setEditClicked] = useState(false);
   console.log(notes);
 
-  const clickHandler = async (e) => {
+  const patchClickHandler = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios.patch(
         `http://127.0.0.1:6001/book/${selectedBook._id}`,
@@ -21,8 +23,21 @@ function ReadBooksCard({ selectedBook }) {
         }
       );
       console.log(response);
+      setEditClicked(false);
     } catch (err) {
       console.log(err.message);
+    }
+  };
+
+  const delClickHandler = async () => {
+    try {
+      const response = await axios.delete(
+        `http://127.0.0.1:6001/book/${selectedBook._id}`
+      );
+      console.log(response);
+      navigate("/read-books");
+    } catch (err) {
+      console.log(`error: ${err.message}`);
     }
   };
 
@@ -30,37 +45,24 @@ function ReadBooksCard({ selectedBook }) {
     <>
       <div className="readBooksCard">
         <div className="readBooksCard__container">
-          <nav>
-            <Link to="/">
-              <h2>HOME</h2>
-            </Link>
-            <Link to="/read-books">
-              <h2>READ</h2>
-            </Link>
-            <Link to="/reading-books">
-              <h2>READING</h2>
-            </Link>
-            <Link to="/want-to-books">
-              <h2>WANT TO</h2>
-            </Link>
-          </nav>
+          <Navbar />
           <div className="container__thumbnail">
             <img src={selectedBook.thumbnail} alt="" />
           </div>
           <div className="container__info">
-            <h2>Title:</h2>
+            <h4>Title:</h4>
             <p>{selectedBook.title}</p>
-            <hr />
-            <h2>Author:</h2>
+            <h4>Author:</h4>
             <p>{selectedBook.author}</p>
-            <h2>Category:</h2>
+            <h4>Category:</h4>
             <p>{selectedBook.category}</p>
             {/* <h2>Publisher:</h2>
             <p>{selectedBook.publisher}</p> */}
             {/* <button>Add</button> */}
-            <h2>Notes:</h2>
-            <p>{notes}</p>
-            <button onClick={() => setEditclicked(true)}>Edit</button>
+            <h4>Notes:</h4>
+            <p className="info__notes">{notes}</p>
+            <button onClick={() => setEditClicked(true)}>Edit</button>
+            <button onClick={delClickHandler}>Delete</button>
           </div>
         </div>
       </div>
@@ -73,12 +75,12 @@ function ReadBooksCard({ selectedBook }) {
             <img src={selectedBook.thumbnail} alt="" />
           </div>
           <div className="container__info">
-            <h2>Title:</h2>
+            <h3>Title:</h3>
             <p>{selectedBook.title}</p>
-            <hr />
-            <h2>Author:</h2>
+            {/* <hr /> */}
+            <h3>Author:</h3>
             <p>{selectedBook.author}</p>
-            <h2>Category:</h2>
+            <h3>Category:</h3>
             <p>{selectedBook.category}</p>
             {/* <h2>Publisher:</h2>
         <p>{selectedBook.publisher}</p> */}
@@ -93,7 +95,7 @@ function ReadBooksCard({ selectedBook }) {
                 defaultValue={notes}
                 onChange={(e) => setNotes(e.target.value)}
               ></textarea>
-              <button onClick={clickHandler}>Enter</button>
+              <button onClick={patchClickHandler}>Enter</button>
             </form>
           </div>
         </div>

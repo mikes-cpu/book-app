@@ -1,0 +1,27 @@
+@import "../../variables.scss";
+
+.home__container {
+  width: 80%;
+  margin: 5rem auto;
+  .container__header {
+    margin-bottom: 10rem;
+    display: flex;
+
+  }
+
+  .container__search-section {
+    width: 50%;
+    margin: auto;
+
+    h4 {
+      opacity: 0.4;
+      margin-bottom: 4rem;
+    }
+    .search-section__header {
+      // top: 30rem;
+      // position: fixed;
+      font-size: 3.5rem;
+      width: 25rem;
+    }
+  }
+}

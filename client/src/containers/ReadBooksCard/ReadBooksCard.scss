@@ -1,1 +1,23 @@
+.readBooksCard__container {
+  text-align: center;
 
+  h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-weight: 600;
+  }
+
+  .info__notes {
+    width: 40%;
+    padding: 4rem;
+    margin: auto;
+    min-height: 50rem;
+  };
+
+  button {
+    font-size: 2rem;
+  }
+}

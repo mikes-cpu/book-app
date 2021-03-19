@@ -3,10 +3,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import BookCardList from "../../components/BookCardList";
 import "./ReadBooks.scss";
+import Navbar from "../../components/Navbar/Navbar";
 
 function ReadBooks({ setSelectedBook }) {
   const [allBooks, setAllBooks] = useState();
-
   const getReadBooks = async () => {
     try {
       const response = await axios.get("http://127.0.0.1:6001/book");
@@ -31,20 +31,10 @@ function ReadBooks({ setSelectedBook }) {
         <div className="readBooks__container">
           <div className="container__header">
             <h2 className="header__title">READ</h2>
-            <p className="header__subtitle">
+            <h3 className="header__subtitle">
               “ALL OF THE BOOKS YOU HAVE READ ARE LISTED HERE!’
-            </p>
-            <nav>
-              <Link to="/">
-                <h2>HOME</h2>
-              </Link>
-              <Link to="/reading-books">
-                <h2>READING</h2>
-              </Link>
-              <Link to="/want-to-books">
-                <h2>WANT TO</h2>
-              </Link>
-            </nav>
+            </h3>
+            <Navbar />
           </div>
           <BookCardList allBooks={allBooks} setSelectedBook={setSelectedBook} />
         </div>

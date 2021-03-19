@@ -1,0 +1,61 @@
+@import "variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $primary-font;
+  font-size: 62.5%;
+  color: #161616;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+a {
+  text-decoration: none !important;
+}
+
+h1 {
+  font-size: 12rem;
+}
+
+h2 {
+  font-size: 10rem;
+}
+
+h3 {
+  font-size: 3rem;
+  margin-left: 30px;
+  transform: translateY(16px);
+  width: 300px;
+  opacity: 0.6;
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: 2.5rem;
+}
+
+button {
+  a {
+
+    text-decoration: none;
+  }
+}
+
+p {
+  font-size: 16px;
+}
+
+button {
+  /* font-family: "Rubik", sans-serif; */
+}
+
+

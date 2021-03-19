@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./WantToBooksCard.scss";
 import axios from "axios";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 
 function WantToBooksCard({ selectedBook }) {
   const [notes, setNotes] = useState(
@@ -9,10 +9,11 @@ function WantToBooksCard({ selectedBook }) {
       ? "Press the edit button to start writing notes for this book"
       : selectedBook.notes
   );
-  const [editClicked, setEditclicked] = useState(false);
+  const [editClicked, setEditClicked] = useState(false);
   console.log(notes);
 
-  const clickHandler = async (e) => {
+  const patchClickHandler = async (e) => {
+    e.preventDefault();
     try {
       const response = await axios.patch(
         `http://127.0.0.1:6001/book/${selectedBook._id}`,
@@ -21,8 +22,51 @@ function WantToBooksCard({ selectedBook }) {
         }
       );
       console.log(response);
+      setEditClicked(false);
     } catch (err) {
       console.log(err.message);
+    }
+  };
+
+  const moveToReadHandler = async () => {
+    try {
+      const response = await axios.patch(
+        `http://127.0.0.1:6001/book/move/${selectedBook._id}`,
+        {
+          listType: "read",
+        }
+      );
+      console.log(response);
+      navigate("/want-to-books");
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  const moveToReadingHandler = async () => {
+    try {
+      const response = await axios.patch(
+        `http://127.0.0.1:6001/book/move/${selectedBook._id}`,
+        {
+          listType: "reading",
+        }
+      );
+      console.log(response);
+      navigate("/want-to-books");
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  const delClickHandler = async () => {
+    try {
+      const response = await axios.delete(
+        `http://127.0.0.1:6001/book/${selectedBook._id}`
+      );
+      console.log(response);
+      navigate("/want-to-books");
+    } catch (err) {
+      console.log(`error: ${err.message}`);
     }
   };
 
@@ -31,7 +75,7 @@ function WantToBooksCard({ selectedBook }) {
       <div className="wantToBooksCard">
         <div className="wantToBooksCard__container">
           <nav>
-            <Link to="/">
+            <Link to="/home">
               <h2>HOME</h2>
             </Link>
             <Link to="/read-books">
@@ -60,7 +104,10 @@ function WantToBooksCard({ selectedBook }) {
             {/* <button>Add</button> */}
             <h2>Notes:</h2>
             <p>{notes}</p>
-            <button onClick={() => setEditclicked(true)}>Edit</button>
+            <button onClick={() => setEditClicked(true)}>Edit</button>
+            <button onClick={delClickHandler}>Delete</button>
+            <button onClick={moveToReadHandler}>Move to Read</button>
+            <button onClick={moveToReadingHandler}>Move to Reading</button>
           </div>
         </div>
       </div>
@@ -93,7 +140,10 @@ function WantToBooksCard({ selectedBook }) {
                 defaultValue={notes}
                 onChange={(e) => setNotes(e.target.value)}
               ></textarea>
-              <button onClick={clickHandler}>Enter</button>
+              <button onClick={patchClickHandler}>Enter</button>
+              <button onClick={delClickHandler}>Delete</button>
+              <button onClick={moveToReadHandler}>Move to Read</button>
+              <button onClick={moveToReadingHandler}>Move to Reading</button>
             </form>
           </div>
         </div>

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Book = require("../models/Book");
+const varify = require("./privateRoutes");
 
 router.get("/", async (req, res) => {
   try {
@@ -31,6 +32,7 @@ router.post("/add", async (req, res) => {
   }
 });
 
+// add notes to a book
 router.patch("/:id", async (req, res) => {
   try {
     const updatedBook = await Book.updateOne(
@@ -39,6 +41,28 @@ router.patch("/:id", async (req, res) => {
     );
     res.json(updatedBook);
   } catch (err) {
+    res.json(`Error: ${err.message}`);
+  }
+});
+
+// move book to a different listType
+router.patch("/move/:id", async (req, res) => {
+  try {
+    const updatedBook = await Book.updateOne(
+      { _id: req.params.id },
+      { $set: { listType: req.body.listType } }
+    );
+    res.json(updatedBook);
+  } catch (err) {
+    res.json(`Error: ${err.message}`);
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    await Book.remove({ _id: req.params.id });
+    res.json("Successfully deleted");
+  } catch (error) {
     res.json(`Error: ${err.message}`);
   }
 });

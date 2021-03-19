@@ -1,13 +1,14 @@
 import "./App.scss";
 import { useEffect, useState } from "react";
 import { Router } from "@reach/router";
-import Home from "./containers/Home";
 import ReadBooks from "./containers/ReadBooks/ReadBooks";
 import ReadBooksCard from "./containers/ReadBooksCard/ReadBooksCard";
 import ReadingBooks from "./containers/ReadingBooks";
 import ReadingBooksCard from "./containers/ReadingBooksCard";
 import WantToBooks from "./containers/WantToBooks";
 import WantToBooksCard from "./containers/WantToBooksCard";
+import Landing from "./containers/Landing";
+import Home from "./containers/Home/Home";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -34,7 +35,8 @@ function App() {
 
   return (
     <Router>
-      <Home path="/" setSearch={setSearch} apiResponse={apiResponse} />
+      <Landing path="/" setSearch={setSearch} apiResponse={apiResponse} />
+      <Home path="home" setSearch={setSearch} apiResponse={apiResponse} />
       <ReadBooks path="read-books" setSelectedBook={setSelectedBook} />
       <ReadBooksCard path="read-books/book" selectedBook={selectedBook} />
       <ReadingBooks path="reading-books" setSelectedBook={setSelectedBook} />

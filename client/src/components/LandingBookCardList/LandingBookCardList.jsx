@@ -5,14 +5,16 @@ import "./LandingBookCardList.scss";
 function LandingBookCardList({ apiResponse }) {
   return !apiResponse ? (
     <>
-      <h1>Please enter something...</h1>
+      <h4>YOUR SEARCH RESULTS WILL BE SHOWN HERE..</h4>
     </>
   ) : (
     <>
       <div className="landingBookCardList">
         <div className="landingBookCardList__container">
           {apiResponse.map((book) => (
-            <LandingBookCard book={book} />
+            <>
+              <LandingBookCard book={book} />
+            </>
           ))}
         </div>
       </div>

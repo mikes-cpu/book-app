@@ -9,7 +9,6 @@ function SectionLayout1({ setSearch, apiResponse }) {
 
   const scrollHandler = () => {
     let position = window.pageYOffset;
-    console.log(position);
     let className = "";
     if (position >= 1400) {
       setIsFixed("searchResults_links__fixed");
@@ -22,15 +21,13 @@ function SectionLayout1({ setSearch, apiResponse }) {
 
   window.addEventListener("scroll", scrollHandler);
 
-  useEffect(() => {}, []);
-
   return (
     <>
       <div className="sectionLayout1">
         <div className="sectionLayout1__container">
           <div className="container__header">
-            <h1>KOOB</h1>
-            <p>“DON’T FORGET WHAT YOU’VE READ. NOTE IT DOWN USING KOOB.”</p>
+            <h2>KOOB</h2>
+            <h3>“DON’T FORGET WHAT YOU’VE READ. NOTE IT DOWN USING KOOB.”</h3>
           </div>
           <div className="container__main">
             <div className="main__search">

@@ -24,19 +24,12 @@ function LandingBookCard({ book }) {
     <>
       <div className="landingBookCard">
         <div className="landingBookCard__container">
-          <div className="container__thumbnail">
+          {/* <div className="container__thumbnail">
             <img src={book.volumeInfo.imageLinks.thumbnail} alt="" />
-          </div>
+          </div> */}
           <div className="container__info">
-            <h2>Title:</h2>
-            <p>{book.volumeInfo.title}</p>
-            <h2>Author:</h2>
-            <p>{book.volumeInfo.authors}</p>
-            {/* <h2>Categories:</h2>
-            <p>{book.volumeInfo.categories}</p>
-            <h2>Publisher:</h2>
-            <p>{book.volumeInfo.publisher}</p>
-            <button>Add</button> */}
+            <p className="info__title">{book.volumeInfo.title}</p>
+            <p className="info__author">{book.volumeInfo.authors}</p>
           </div>
           <div className="container__buttons">
             <button
@@ -46,13 +39,13 @@ function LandingBookCard({ book }) {
                   author: book.volumeInfo.authors,
                   thumbnail: book.volumeInfo.imageLinks.thumbnail,
                   category: book.volumeInfo.categories,
-                  listType: "want_to",
+                  listType: "read",
                   notes: "",
                 });
               }}
-              className="button__wantTo"
+              className="button__read"
             >
-              WANT TO
+              READ
             </button>
             <button
               onClick={() => {
@@ -76,13 +69,13 @@ function LandingBookCard({ book }) {
                   author: book.volumeInfo.authors,
                   thumbnail: book.volumeInfo.imageLinks.thumbnail,
                   category: book.volumeInfo.categories,
-                  listType: "read",
+                  listType: "want_to",
                   notes: "",
                 });
               }}
-              className="button__read"
+              className="button__wantTo"
             >
-              READ
+              WANT TO
             </button>
           </div>
         </div>
