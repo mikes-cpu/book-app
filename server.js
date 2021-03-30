@@ -2,6 +2,7 @@
 const express = require("express");
 const app = express();
 const varify = require("./routes/privateRoutes");
+const path = require("path");
 
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config/config.env" });
@@ -21,12 +22,13 @@ app.use("/api/book", book);
 const auth = require("./routes/auth");
 app.use("/api/user", auth);
 
-//deploy to heroku
-// if (process.env.NODE_ENV === "production") {
-// app.use(express.static(path.resolve("client", "build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
-});
+// serve static assets if in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname + "client", "build", "index.html"));
+  });
+}
 // }
 
 // server
