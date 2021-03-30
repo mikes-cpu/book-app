@@ -1,5 +1,23 @@
 .bookCardList__container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5%;
+  gap: 80px;
+}
+
+// ------------------------------------------------------
+// Mobile Phone
+@media (max-width: 500px) {
+  .bookCardList__container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+}
+
+// ------------------------------------------------------
+// Tablets - portrait
+@media (min-width: 501px) and (max-width: 1024px) {
+  .bookCardList__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 }

@@ -1,6 +1,7 @@
 // setup
 const express = require("express");
 const app = express();
+const varify = require("./routes/privateRoutes");
 
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config/config.env" });
@@ -15,12 +16,12 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 // http requests
-app.get("/", (req, res) => {
+app.get("/", varify, (req, res) => {
   res.send("/ endpoint works");
 });
 
 const book = require("./routes/book");
-app.use("/book", book);
+app.use("/api/book", book);
 
 const auth = require("./routes/auth");
 app.use("/api/user", auth);

@@ -1,0 +1,346 @@
+@import "../../variables.scss";
+
+.landing__container {
+  height: 100vh;
+  background: url("../../img/paper.png");
+  background-size: cover;
+  position: relative;
+
+  .container__header {
+    .header__sub-header {
+      font-size: 3rem;
+      color: $secondary-color;
+      line-height: 3rem;
+      position: absolute;
+      left: 5rem;
+      top: 20rem;
+      transform: rotate(-45deg);
+      width: 40rem;
+    }
+    .header__header {
+      color: $primary-color;
+      line-height: 20.7rem;
+      position: absolute;
+      left: -14rem;
+      top: 30rem;
+      transform: rotate(-45deg);
+    }
+  }
+  .container__login {
+    position: absolute;
+    right: 20%;
+    top: 30rem;
+    .login__header {
+      font-size: 3rem;
+      color: $primary-color;
+      margin-bottom: 2rem;
+    }
+    .login__form {
+      display: flex;
+      flex-direction: column;
+      max-width: 30%;
+
+      .login__lable {
+        font-size: 2rem;
+        color: $primary-color;
+        font-weight: $font-weight-medium;
+        margin-bottom: 1rem;
+      }
+
+      .login__input {
+        padding: 1rem;
+        font-size: 2rem;
+        color: $primary-color;
+        width: 35rem;
+        border: none;
+        background-color: $light-grey;
+        margin-bottom: 2rem;
+        border-radius: 0.5rem;
+        border: 1px solid $dark-grey;
+      }
+      input:focus {
+        outline: none;
+        border: $primary-color 1px solid;
+      }
+
+      .login__button {
+        font-size: 2rem;
+        color: $primary-color;
+        width: 35rem;
+        font-weight: $font-weight-medium;
+        border: 1px solid $dark-grey;
+        padding: 1rem;
+        background-color: $light-grey;
+        margin-bottom: 6rem;
+      }
+      .login__button:focus {
+        outline: none;
+        border: $primary-color 1px solid;
+      }
+    }
+  }
+  .container__sign-up-button {
+    font-size: 2rem;
+    color: $secondary-color;
+    font-weight: $font-weight-medium;
+    padding: 2rem 5rem;
+    background-color: #fff;
+    border: 0.15rem solid $primary-color;
+    transform: translateX(46%);
+  }
+  .container__sign-up-button:focus {
+    outline: none;
+    border: $secondary-color 1px solid;
+  }
+
+  .container__corner-top {
+    position: absolute;
+    right: 6%;
+    top: 6%;
+  }
+  .container__corner-bottom {
+    position: absolute;
+    right: 6%;
+    bottom: 6%;
+  }
+}
+// ------------------------------------------------------
+// Mobile Phone
+@media (max-width: 500px) {
+  .landing__container {
+    // height: 100vh;
+    // background: url("../../img/paper.png");
+    // background-size: cover;
+    // position: relative;
+
+    .container__header {
+      display: flex;
+      flex-direction: column-reverse;
+      .header__sub-header {
+        font-size: 1.5rem;
+        line-height: 1.7rem;
+        position: static;
+        transform: rotate(0deg);
+        width: 18rem;
+        margin: 2rem auto 0;
+        opacity: 0.8;
+      }
+      .header__header {
+        font-size: 5rem;
+        line-height: 3.7rem;
+        position: static;
+        transform: rotate(0deg);
+        margin: 6rem auto 0;
+      }
+    }
+    .container__login {
+      position: static;
+      .login__header {
+        font-size: 2rem;
+        width: 60%;
+        margin: 25% auto 8%;
+      }
+      .login__form {
+        max-width: 100%;
+        .login__lable {
+          font-size: 1rem;
+          width: 60%;
+          margin: 0 auto 4%;
+        }
+
+        .login__input {
+          font-size: 1rem;
+          padding: 1rem;
+          width: 60%;
+          margin: 0 auto 6%;
+        }
+        input:focus {
+        }
+
+        .login__button {
+          font-size: 1rem;
+          width: 60%;
+          margin: auto;
+        }
+        .login__button:focus {
+        }
+      }
+    }
+    .container__sign-up-button {
+      display: block;
+      font-size: 1rem;
+      width: 30%;
+      padding: 1rem 2rem;
+      transform: translateX(0);
+      margin: 12% auto;
+    }
+    .container__sign-up-button:focus {
+    }
+
+    .container__corner-top {
+      display: none;
+    }
+    .container__corner-bottom {
+      display: none;
+    }
+  }
+}
+// ------------------------------------------------------
+// Tablets - portrait
+@media (min-width: 501px) and (max-width: 1024px) {
+  .landing__container {
+    .container__header {
+      display: flex;
+      flex-direction: column-reverse;
+      .header__sub-header {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        position: static;
+        transform: rotate(0deg);
+        width: 25rem;
+        margin: 4rem auto 0;
+        opacity: 0.8;
+      }
+      .header__header {
+        font-size: 12rem;
+        line-height: 8.7rem;
+        position: static;
+        transform: rotate(0deg);
+        margin: 15rem auto 0;
+      }
+    }
+    .container__login {
+      position: static;
+      .login__header {
+        font-size: 2rem;
+        width: 60%;
+        margin: 15% auto 4%;
+      }
+      .login__form {
+        max-width: 100%;
+        .login__lable {
+          font-size: 1.6rem;
+          width: 60%;
+          margin: 0 auto 2%;
+        }
+
+        .login__input {
+          font-size: 1.6rem;
+          padding: 2rem;
+          width: 60%;
+          margin: 0 auto 6%;
+        }
+        input:focus {
+        }
+
+        .login__button {
+          font-size: 1.6rem;
+          width: 60%;
+          padding: 1.3rem;
+          margin: auto;
+        }
+        .login__button:focus {
+        }
+      }
+    }
+    .container__sign-up-button {
+      display: block;
+      font-size: 1.6rem;
+      width: 20%;
+      padding: 1.3rem 1.5rem;
+      transform: translateX(0);
+      margin: 12% auto;
+    }
+    .container__sign-up-button:focus {
+    }
+
+    .container__corner-top {
+      display: none;
+    }
+    .container__corner-bottom {
+      display: none;
+    }
+  }
+}
+
+// ------------------------------------------------------
+// Tablets - landscape
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .landing__container {
+    display: flex;
+    .container__header {
+      flex: 1;
+      display: flex;
+      .header__sub-header {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        position: static;
+        transform: rotate(-30deg) translateX(5rem);
+        width: 25rem;
+        margin: 4rem auto 30rem;
+        opacity: 0.8;
+        text-align: center;
+      }
+      .header__header {
+        font-size: 12rem;
+        line-height: 8.7rem;
+        position: static;
+        transform: rotate(-30deg);
+        margin: 4rem auto 0;
+        text-align: center;
+      }
+    }
+    .container__login {
+      flex: 1;
+      position: static;
+      .login__header {
+        font-size: 2rem;
+        width: 60%;
+        margin: 40% auto 4%;
+      }
+      .login__form {
+        max-width: 100%;
+        .login__lable {
+          font-size: 1.6rem;
+          width: 60%;
+          margin: 0 auto 2%;
+        }
+
+        .login__input {
+          font-size: 1.6rem;
+          padding: 1rem;
+          width: 60%;
+          margin: 0 auto 6%;
+        }
+        input:focus {
+        }
+
+        .login__button {
+          font-size: 1.6rem;
+          width: 60%;
+          padding: 1rem;
+          margin: auto;
+        }
+        .login__button:focus {
+        }
+      }
+    }
+    .container__sign-up-button {
+      display: block;
+      font-size: 1.6rem;
+      width: 25%;
+      padding: 1rem 2rem;
+      transform: translateX(0);
+      margin: 12% auto;
+    }
+    .container__sign-up-button:focus {
+    }
+
+    .container__corner-top {
+      display: none;
+    }
+    .container__corner-bottom {
+      display: none;
+    }
+  }
+}

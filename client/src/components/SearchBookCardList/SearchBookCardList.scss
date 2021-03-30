@@ -1,0 +1,56 @@
+@import "../../variables.scss";
+
+.before-search-text {
+  font-size: 5rem;
+  color: $primary-color;
+  font-weight: $font-weight-normal;
+}
+
+.search-book-card-list__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  h4 {
+    margin-top: 10rem;
+  }
+
+  gap: 100px;
+}
+
+// ------------------------------------------------------
+// Mobile Phone
+@media (max-width: 500px) {
+  .before-search-text {
+    font-size: 2rem;
+    width: 70%;
+    margin: auto;
+    font-weight: $font-weight-bold;
+  }
+
+  .search-book-card-list__container {
+    grid-template-columns: repeat(1, 1fr);
+    h4 {
+    }
+    gap: 20px;
+  }
+}
+
+// ------------------------------------------------------
+// Tablets - portrait
+@media (min-width: 501px) and (max-width: 1024px) {
+  .before-search-text {
+    font-size: 2rem;
+    width: 70%;
+    margin: auto;
+    font-weight: $font-weight-normal;
+    text-align: center;
+  }
+
+  .search-book-card-list__container {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 4rem;
+    h4 {
+    }
+    gap: 40px;
+  }
+}

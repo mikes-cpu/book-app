@@ -27,16 +27,9 @@ function BookCard({ book, setSelectedBook }) {
               <img src={book.thumbnail} alt="" />
             </div>
             <div className="container__info">
-              {/* <h2>Title:</h2> */}
               <p className="info__title">{book.title}</p>
-              {/* <hr /> */}
-              {/* <h2>Author:</h2> */}
               <p className="info__author">{book.author}</p>
-              {/* <h2>Categories:</h2>
-              <p>{book.volumeInfo.categories}</p>
-              <h2>Publisher:</h2>
-              <p>{book.volumeInfo.publisher}</p>
-              <button>Add</button> */}
+              <button className="info__make-notes-button">MAKE NOTES</button>
             </div>
           </div>
         </Link>

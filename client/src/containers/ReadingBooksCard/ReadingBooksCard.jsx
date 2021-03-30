@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./ReadingBooksCard.scss";
 import axios from "axios";
 import { Link, navigate } from "@reach/router";
+import backIMG from "../../img/back-img.svg";
 
 function ReadingBooksCard({ selectedBook }) {
   const [notes, setNotes] = useState(
@@ -15,12 +16,9 @@ function ReadingBooksCard({ selectedBook }) {
   const patchClickHandler = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.patch(
-        `http://127.0.0.1:6001/book/${selectedBook._id}`,
-        {
-          notes: notes,
-        }
-      );
+      const response = await axios.patch(`/api/book/${selectedBook._id}`, {
+        notes: notes,
+      });
       console.log(response);
       setEditClicked(false);
     } catch (err) {
@@ -30,14 +28,11 @@ function ReadingBooksCard({ selectedBook }) {
 
   const moveToReadHandler = async () => {
     try {
-      const response = await axios.patch(
-        `http://127.0.0.1:6001/book/move/${selectedBook._id}`,
-        {
-          listType: "read",
-        }
-      );
+      const response = await axios.patch(`/api/book/move/${selectedBook._id}`, {
+        listType: "read",
+      });
       console.log(response);
-      navigate("/reading-books");
+      navigate("/read-books");
     } catch (err) {
       console.log(err.message);
     }
@@ -45,9 +40,7 @@ function ReadingBooksCard({ selectedBook }) {
 
   const delClickHandler = async () => {
     try {
-      const response = await axios.delete(
-        `http://127.0.0.1:6001/book/${selectedBook._id}`
-      );
+      const response = await axios.delete(`/api/book/${selectedBook._id}`);
       console.log(response);
       navigate("/reading-books");
     } catch (err) {
@@ -59,40 +52,41 @@ function ReadingBooksCard({ selectedBook }) {
     <>
       <div className="readingBooksCard">
         <div className="readingBooksCard__container">
-          <nav>
-            <Link to="/home">
-              <h2>HOME</h2>
-            </Link>
-            <Link to="/read-books">
-              <h2>READ</h2>
-            </Link>
-            <Link to="/reading-books">
-              <h2>READING</h2>
-            </Link>
-            <Link to="/want-to-books">
-              <h2>WANT TO</h2>
-            </Link>
-          </nav>
-          <div className="container__thumbnail">
-            <img src={selectedBook.thumbnail} alt="" />
+          <div className="container__header">
+            <div className="header__book-details">
+              <h2 className="book-details__title">{selectedBook.title}</h2>
+              <h2 className="book-details__author">{selectedBook.author}</h2>
+            </div>
           </div>
-          <div className="container__info">
-            <h2>Title:</h2>
-            <p>{selectedBook.title}</p>
-            <hr />
-            <h2>Author:</h2>
-            <p>{selectedBook.author}</p>
-            <h2>Category:</h2>
-            <p>{selectedBook.category}</p>
-            {/* <h2>Publisher:</h2>
-            <p>{selectedBook.publisher}</p> */}
-            {/* <button>Add</button> */}
-            <h2>Notes:</h2>
-            <p>{notes}</p>
-            <button onClick={() => setEditClicked(true)}>Edit</button>
-            <button onClick={delClickHandler}>Delete</button>
-            <button onClick={moveToReadHandler}>Move to Read</button>
+          <div className="container__note-section">
+            <p className="note-section__text">{notes}</p>
           </div>
+          <div className="container__buttons">
+            <button
+              className="buttons__edit-button"
+              onClick={() => setEditClicked(true)}
+            >
+              EDIT NOTES
+            </button>
+            <button
+              className="buttons__move-to-read"
+              onClick={moveToReadHandler}
+            >
+              MOVE TO READ
+            </button>
+            <button
+              className="buttons__delete-button"
+              onClick={delClickHandler}
+            >
+              DELETE BOOK
+            </button>
+          </div>
+          <Link to="/reading-books">
+            <div className="container__back-link">
+              <img className="back-link__img" src={backIMG} alt="" />
+              <p className="back-link__text">BACK</p>
+            </div>
+          </Link>
         </div>
       </div>
     </>
@@ -100,23 +94,16 @@ function ReadingBooksCard({ selectedBook }) {
     <>
       <div className="readingBooksCard">
         <div className="readingBooksCard__container">
-          <div className="container__thumbnail">
-            <img src={selectedBook.thumbnail} alt="" />
+          <div className="container__header">
+            <div className="header__book-details">
+              <h2 className="book-details__title">{selectedBook.title}</h2>
+              <h2 className="book-details__author">{selectedBook.author}</h2>
+            </div>
           </div>
-          <div className="container__info">
-            <h2>Title:</h2>
-            <p>{selectedBook.title}</p>
-            <hr />
-            <h2>Author:</h2>
-            <p>{selectedBook.author}</p>
-            <h2>Category:</h2>
-            <p>{selectedBook.category}</p>
-            {/* <h2>Publisher:</h2>
-        <p>{selectedBook.publisher}</p> */}
-            {/* <button>Add</button> */}
-            <h2>Notes:</h2>
+          <div className="container__note-section">
             <form action="">
               <textarea
+                className="note-section__textarea"
                 name=""
                 id=""
                 cols="30"
@@ -124,9 +111,22 @@ function ReadingBooksCard({ selectedBook }) {
                 defaultValue={notes}
                 onChange={(e) => setNotes(e.target.value)}
               ></textarea>
-              <button onClick={patchClickHandler}>Enter</button>
             </form>
           </div>
+          <div className="container__buttons">
+            <button
+              className="buttons__enter-info-button"
+              onClick={patchClickHandler}
+            >
+              ENTER
+            </button>
+          </div>
+          <Link to="/reading-books">
+            <div className="container__back-link">
+              <img className="back-link__img" src={backIMG} alt="" />
+              <p className="back-link__text">BACK</p>
+            </div>
+          </Link>
         </div>
       </div>
     </>

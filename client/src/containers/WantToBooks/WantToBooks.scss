@@ -1,13 +1,149 @@
-.wantToBooks__container {
-  margin: 4%;
+@import "../../variables.scss";
+
+.want-to-books__container {
+  min-height: 100vh;
+  height: fit-content;
+  background: url("../../img/paper.png");
+  background-size: cover;
   .container__header {
     display: flex;
-    .header__title {
-      margin-right: 40px;
+    margin-left: 4%;
+    margin-bottom: 16rem;
+
+    .header__header {
+      color: $primary-color;
+      font-size: 10rem;
+      line-height: 7.2rem;
+      transform: translateX(-2rem);
+      margin-top: 4%;
+      width: 120rem;
     }
-    .header__subtitle {
-      opacity: 0.6;
-      margin-bottom: 80px;
+
+    .header__quote {
+      font-size: 3rem;
+      color: #747474;
+      width: 100rem;
+      line-height: 3.5rem;
+      margin-top: 4%;
+      margin-left: 4rem;
+      font-weight: $font-weight-normal;
+    }
+    .header__home-link {
+      margin-top: 6rem;
+      margin-left: 3rem;
+      margin-right: 20rem;
+
+      .home-link__text {
+        font-size: 6rem;
+        color: $secondary-color;
+        font-weight: $font-weight-normal;
+      }
+    }
+  }
+
+  .container__book-list {
+    margin: 4% 4%;
+  }
+}
+
+// ------------------------------------------------------
+// Mobile Phone
+@media (max-width: 500px) {
+  .want-to-books__container {
+    .container__header {
+      flex-direction: column;
+      margin-left: 0%;
+      margin-bottom: 0rem;
+      text-align: center;
+
+      .header__header {
+        font-size: 4rem;
+        order: 2;
+        transform: translateX(0rem);
+        line-height: 2rem;
+        margin-top: 0%;
+        margin-bottom: 8%;
+        width: auto;
+      }
+
+      .header__quote {
+        order: 3;
+        font-size: 1.2rem;
+        width: 60rem;
+        line-height: 1.5rem;
+        margin-top: 0%;
+        margin-left: 0rem;
+        color: $primary-color;
+        width: 20rem;
+        margin: auto;
+        margin-bottom: 15%;
+      }
+      .header__home-link {
+        order: 1;
+        margin-top: 0rem;
+        margin-left: 0rem;
+        margin-right: 0rem;
+        .home-link__text {
+          font-size: 2rem;
+          margin-top: 15%;
+          margin-bottom: 10%;
+        }
+      }
+    }
+
+    .container__book-list {
+    }
+  }
+}
+
+// ------------------------------------------------------
+// Tablets - portrait
+@media (min-width: 501px) and (max-width: 1024px) {
+  .want-to-books__container {
+    .container__header {
+      flex-direction: column;
+      margin-left: 0%;
+      margin-bottom: 0rem;
+      text-align: center;
+
+      .header__header {
+        font-size: 10rem;
+        order: 2;
+        transform: translateX(0rem);
+        line-height: 11rem;
+        margin-top: 0%;
+        margin-bottom: 8%;
+        width: 50rem;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .header__quote {
+        order: 3;
+        font-size: 2rem;
+        line-height: 2.8rem;
+        margin-top: 0%;
+        margin-left: 0rem;
+        color: $primary-color;
+        width: 40rem;
+        margin: auto;
+        margin-bottom: 15%;
+      }
+      .header__home-link {
+        order: 1;
+        margin-top: 15%;
+        margin-left: 0rem;
+        margin-right: auto;
+        margin-left: auto;
+        .home-link__text {
+          font-size: 5rem;
+          margin-top: 15%;
+          margin-bottom: 25%;
+        }
+      }
+    }
+
+    .container__book-list {
     }
   }
 }

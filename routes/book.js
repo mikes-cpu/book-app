@@ -3,7 +3,7 @@ const router = express.Router();
 const Book = require("../models/Book");
 const varify = require("./privateRoutes");
 
-router.get("/", async (req, res) => {
+router.get("/", varify, async (req, res) => {
   try {
     const books = await Book.find();
     res.json(books);
@@ -12,8 +12,9 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/add", async (req, res) => {
+router.post("/add", varify, async (req, res) => {
   const book = new Book({
+    userID: req.body.userID,
     title: req.body.title,
     author: req.body.author,
     thumbnail: req.body.thumbnail,
@@ -33,7 +34,7 @@ router.post("/add", async (req, res) => {
 });
 
 // add notes to a book
-router.patch("/:id", async (req, res) => {
+router.patch("/:id", varify, async (req, res) => {
   try {
     const updatedBook = await Book.updateOne(
       { _id: req.params.id },
@@ -46,7 +47,7 @@ router.patch("/:id", async (req, res) => {
 });
 
 // move book to a different listType
-router.patch("/move/:id", async (req, res) => {
+router.patch("/move/:id", varify, async (req, res) => {
   try {
     const updatedBook = await Book.updateOne(
       { _id: req.params.id },
@@ -58,7 +59,7 @@ router.patch("/move/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", varify, async (req, res) => {
   try {
     await Book.remove({ _id: req.params.id });
     res.json("Successfully deleted");

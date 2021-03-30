@@ -1,0 +1,91 @@
+@import "../../variables.scss";
+
+.search__container {
+  min-height: 100vh;
+  height: fit-content;
+  background: url("../../img/paper.png");
+  background-size: cover;
+  .container__header {
+    display: flex;
+    .header__header {
+      font-size: 10rem;
+      color: $secondary-color;
+      line-height: 20.7rem;
+      margin-left: 4%;
+      flex: 1;
+    }
+
+    .header__home-link {
+      font-size: 6rem;
+      line-height: 12rem;
+      color: $primary-color;
+      font-weight: $font-weight-normal;
+      line-height: 20.7rem;
+      margin-right: 4%;
+    }
+  }
+
+  .container__search-section {
+    margin: 4% 4%;
+    width: 40%;
+  }
+}
+
+// ------------------------------------------------------
+// Mobile Phone
+@media (max-width: 500px) {
+  .search__container {
+    .container__header {
+      flex-direction: column-reverse;
+      text-align: center;
+      .header__header {
+        font-size: 4rem;
+        line-height: 2.8rem;
+        margin-bottom: 10%;
+        margin-left: 0%;
+      }
+
+      .header__home-link {
+        font-size: 2rem;
+        line-height: 1.5rem;
+        margin-top: 15%;
+        margin-bottom: 10%;
+        transform: translateX(1rem);
+      }
+    }
+
+    .container__search-section {
+      width: 100%;
+    }
+  }
+}
+
+// ------------------------------------------------------
+// Tablets - portrait
+@media (min-width: 501px) and (max-width: 1300px) {
+  .search__container {
+    .container__header {
+      flex-direction: column-reverse;
+      text-align: center;
+      .header__header {
+        font-size: 10rem;
+        line-height: 11.8rem;
+        margin-bottom: 10%;
+        margin-left: 0%;
+      }
+
+      .header__home-link {
+        font-size: 5rem;
+        line-height: 1.5rem;
+        margin-top: 15%;
+        margin-bottom: 10%;
+        transform: translateX(1rem);
+      }
+    }
+
+    .container__search-section {
+      width: 100%;
+      margin-left: 0%;
+    }
+  }
+}

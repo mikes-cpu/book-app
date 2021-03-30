@@ -1,1 +1,255 @@
+@import "../../variables.scss";
 
+.want-to-books-card__container {
+  min-height: 100vh;
+  height: fit-content;
+  background: url("../../img/paper.png");
+  background-size: cover;
+  .container__header {
+    width: 70%;
+    margin: auto;
+    .header__book-details {
+      padding-top: 6rem;
+      .book-details__title {
+        text-transform: uppercase;
+        font-size: 12rem;
+        color: $primary-color;
+        margin-bottom: 4rem;
+      }
+      .book-details__author {
+        text-transform: uppercase;
+        font-size: 10rem;
+        color: $secondary-color;
+        font-weight: $font-weight-normal;
+        margin-bottom: 6rem;
+      }
+    }
+  }
+
+  .container__note-section {
+    min-height: 50rem;
+    height: fit-content;
+    width: 60%;
+    margin: auto;
+    background-color: #f1f1f1;
+    margin-bottom: 2rem;
+
+    .note-section__text {
+      font-size: 2rem;
+      color: $primary-color;
+      font-weight: $font-weight-normal;
+      padding: 3rem;
+      line-height: 4rem;
+    }
+    // when page is in editing mode
+    .note-section__textarea {
+      width: 100%;
+      min-height: 50rem;
+      height: fit-content;
+      background-color: #f1f1f1;
+      font-size: 2rem;
+      color: $primary-color;
+      font-weight: $font-weight-normal;
+      padding: 3rem;
+      line-height: 4rem;
+      border: none;
+    }
+  }
+
+  .container__buttons {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10rem;
+    .buttons__edit-button {
+      font-size: 2rem;
+      padding: 1rem 3rem;
+      background-color: #fff;
+      border: 1px solid $primary-color;
+    }
+    .buttons__move-to-read {
+      font-size: 2rem;
+      padding: 1rem 3rem;
+      background-color: #fff;
+      border: 1px solid $primary-color;
+    }
+    .buttons__move-to-reading {
+      font-size: 2rem;
+      padding: 1rem 3rem;
+      background-color: #fff;
+      border: 1px solid $primary-color;
+    }
+    .buttons__delete-button {
+      font-size: 2rem;
+      padding: 1rem 3rem;
+      background-color: #fff;
+      border: 1px solid $primary-color;
+    }
+    // when page is in editing mode
+    .buttons__enter-info-button {
+      font-size: 2rem;
+      padding: 1rem 3rem;
+      background-color: #fff;
+      border: 1px solid $primary-color;
+    }
+  }
+
+  .container__back-link {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    padding-bottom: 10rem;
+
+    .back-link__img {
+      margin-right: 1rem;
+    }
+
+    .back-link__text {
+      font-size: 6rem;
+      color: $secondary-color;
+      font-weight: $font-weight-normal;
+    }
+  }
+}
+
+// ------------------------------------------------------
+// Mobile Phone
+@media (max-width: 500px) {
+  .want-to-books-card__container {
+    .container__header {
+      .header__book-details {
+        .book-details__title {
+          font-size: 4rem;
+        }
+        .book-details__author {
+          font-size: 3rem;
+        }
+      }
+    }
+
+    .container__note-section {
+      width: 100%;
+      min-height: 20rem;
+
+      .note-section__text {
+        font-size: 1rem;
+        line-height: 1.7rem;
+      }
+      // when page is in editing mode
+      .note-section__textarea {
+        font-size: 1rem;
+        line-height: 1.7rem;
+        min-height: 20rem;
+      }
+    }
+
+    .container__buttons {
+      width: 80%;
+      margin-bottom: 8rem;
+
+      .buttons__edit-button {
+        font-size: 1rem;
+        padding: 1rem 1rem;
+      }
+      .buttons__move-to-read {
+        font-size: 1rem;
+        padding: 1rem 0.5rem;
+      }
+      .buttons__move-to-reading {
+        font-size: 1rem;
+        padding: 1rem 1rem;
+      }
+      .buttons__delete-button {
+        font-size: 1rem;
+        padding: 1rem 1rem;
+      }
+      // when page is in editing mode
+      .buttons__enter-info-button {
+        font-size: 1rem;
+        margin: auto;
+      }
+    }
+
+    .container__back-link {
+      padding-bottom: 8rem;
+      width: 30%;
+      .back-link__img {
+        width: 2rem;
+      }
+
+      .back-link__text {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+// ------------------------------------------------------
+// Tablets - portrait
+@media (min-width: 501px) and (max-width: 1024px) {
+  .want-to-books-card__container {
+    .container__header {
+      .header__book-details {
+        .book-details__title {
+          font-size: 8rem;
+        }
+        .book-details__author {
+          font-size: 4rem;
+        }
+      }
+    }
+
+    .container__note-section {
+      width: 100%;
+      min-height: 20rem;
+
+      .note-section__text {
+        font-size: 1rem;
+        line-height: 1.7rem;
+      }
+      // when page is in editing mode
+      .note-section__textarea {
+        font-size: 1rem;
+        line-height: 1.7rem;
+        min-height: 20rem;
+      }
+    }
+
+    .container__buttons {
+      width: 70%;
+      margin-bottom: 10rem;
+      .buttons__edit-button {
+        font-size: 1.2rem;
+      }
+      .buttons__move-to-read {
+        font-size: 1.2rem;
+        padding: 1rem 0.5rem;
+      }
+      .buttons__move-to-reading {
+        font-size: 1.2rem;
+        padding: 1rem 1rem;
+      }
+      .buttons__delete-button {
+        font-size: 1.2rem;
+      }
+      // when page is in editing mode
+      .buttons__enter-info-button {
+        font-size: 1rem;
+        margin: auto;
+      }
+    }
+
+    .container__back-link {
+      padding-bottom: 10rem;
+      width: 20%;
+      .back-link__img {
+        width: 3rem;
+      }
+
+      .back-link__text {
+        font-size: 3rem;
+      }
+    }
+  }
+}

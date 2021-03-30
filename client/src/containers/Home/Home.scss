@@ -1,27 +1,458 @@
 @import "../../variables.scss";
 
 .home__container {
-  width: 80%;
-  margin: 5rem auto;
+  height: 100vh;
+  background: url("../../img/paper.png");
+  background-size: cover;
   .container__header {
-    margin-bottom: 10rem;
-    display: flex;
+    .header__header {
+      position: absolute;
+      right: -7rem;
+      top: 7rem;
+      color: $secondary-color;
+      line-height: 20.7rem;
+      transform: rotate(30deg);
+    }
 
+    .header__sub-header {
+      display: none;
+    }
   }
 
-  .container__search-section {
-    width: 50%;
-    margin: auto;
-
-    h4 {
-      opacity: 0.4;
-      margin-bottom: 4rem;
+  .container__mobile-search-button-container {
+    display: none;
+    .mobile-search-button-container__mobile-search-button {
     }
-    .search-section__header {
-      // top: 30rem;
-      // position: fixed;
-      font-size: 3.5rem;
-      width: 25rem;
+  }
+
+  .container__links {
+    position: absolute;
+    bottom: -4rem;
+    left: -24rem;
+    display: flex;
+    transform: rotate(-60deg);
+    .links__img {
+      width: 70rem;
+      transform: rotate(90deg);
+    }
+    .links__links {
+      display: flex;
+      flex-direction: column;
+      margin-left: 2rem;
+
+      .links__link {
+        font-size: 7rem;
+        color: $primary-color;
+        margin-bottom: 4rem;
+      }
+
+      .links__read {
+        p {
+          font-size: 7rem;
+          color: $primary-color;
+        }
+      }
+      .links__reading {
+        p {
+          font-size: 7rem;
+          color: $primary-color;
+        }
+      }
+      .links__want-to-read {
+        p {
+          font-size: 7rem;
+          color: $primary-color;
+        }
+      }
+      .links__search {
+        p {
+          font-size: 7rem;
+          color: $secondary-color;
+        }
+      }
+      .links__logout {
+        color: rgb(201, 201, 201);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .container__info {
+    position: absolute;
+    bottom: 5rem;
+    right: 20rem;
+    width: 40rem;
+
+    .info__header {
+      font-size: 5rem;
+      color: $primary-color;
+      margin-bottom: 2.5rem;
+      font-weight: $font-weight-normal;
+    }
+    .info__sub-header {
+      font-size: 2.5rem;
+      color: $primary-color;
+      margin-bottom: 0.5rem;
+      font-weight: $font-weight-normal;
+    }
+    .info__text {
+      font-size: 2rem;
+      color: $primary-color;
+      margin-bottom: 2.5rem;
+      font-weight: $font-weight-normal;
+    }
+  }
+}
+
+// ------------------------------------------------------
+// Mobile Phone
+@media (max-width: 500px) {
+  .home__container {
+    height: 100vh;
+    background: url("../../img/paper.png");
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    .container__header {
+      .header__header {
+        font-size: 5rem;
+        position: static;
+        line-height: 3.7rem;
+        transform: rotate(0deg);
+        text-align: center;
+        padding-top: 20%;
+        padding-bottom: 2rem;
+      }
+
+      .header__sub-header {
+        font-size: 1.5rem;
+        color: $secondary-color;
+        font-weight: $font-weight-normal;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 4rem;
+      }
+    }
+
+    .container__mobile-search-button-container {
+      display: block;
+      text-align: center;
+
+      .mobile-search-button-container__mobile-search-button {
+        font-size: 2rem;
+        color: $secondary-color;
+        font-weight: $font-weight-bold;
+        padding: 1rem 2rem;
+        background-color: #fff;
+        border: 1px solid $primary-color;
+        border-radius: 5px;
+      }
+    }
+
+    .container__links {
+      position: absolute;
+      bottom: 0rem;
+      left: 0rem;
+      display: flex;
+      flex-direction: row-reverse;
+      transform: rotate(15deg);
+      margin-top: 20rem;
+      .links__img {
+        width: 30rem;
+        display: block;
+        // height: 20rem;
+        transform: rotate(30deg) translateX(7rem) translateY(-3rem);
+      }
+      .links__links {
+        text-align: right;
+        width: fit-content;
+        transform: rotate(30deg) translateY(-9rem) translateX(2.5rem);
+        .links__link {
+          font-weight: $font-weight-bold;
+        }
+
+        .links__read {
+          p {
+            font-size: 1.6rem;
+            transform: rotate(-30deg);
+          }
+        }
+        .links__reading {
+          p {
+            font-size: 1.6rem;
+            transform: rotate(-30deg);
+          }
+        }
+        .links__want-to-read {
+          p {
+            font-size: 1.6rem;
+            transform: rotate(-30deg);
+          }
+        }
+        .links__search {
+          display: none;
+          p {
+            font-size: 2rem;
+          }
+        }
+        .links__logout {
+          font-size: 1.6rem;
+          transform: rotate(-30deg);
+        }
+      }
+    }
+
+    .container__info {
+      display: none;
+
+      .info__header {
+      }
+      .info__sub-header {
+      }
+      .info__text {
+      }
+    }
+  }
+}
+
+// ------------------------------------------------------
+// Tablets - portrait
+@media (min-width: 501px) and (max-width: 1024px) {
+  .home__container {
+    height: 100vh;
+    background: url("../../img/paper.png");
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    .container__header {
+      .header__header {
+        font-size: 12rem;
+        position: static;
+        line-height: 7.2rem;
+        transform: rotate(0deg);
+        text-align: center;
+        padding-top: 17%;
+        padding-bottom: 2rem;
+      }
+
+      .header__sub-header {
+        font-size: 2.5rem;
+        color: $secondary-color;
+        font-weight: $font-weight-normal;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 12rem;
+      }
+    }
+
+    .container__mobile-search-button-container {
+      display: block;
+      text-align: center;
+
+      .mobile-search-button-container__mobile-search-button {
+        font-size: 3.5rem;
+        color: $secondary-color;
+        font-weight: $font-weight-bold;
+        padding: 1.5rem 4rem;
+        background-color: #fff;
+        border: 1px solid $primary-color;
+        border-radius: 5px;
+      }
+    }
+
+    .container__links {
+      position: absolute;
+      bottom: 0rem;
+      left: 0rem;
+      display: flex;
+      flex-direction: row-reverse;
+      transform: rotate(15deg);
+      margin-top: 20rem;
+      .links__img {
+        width: 60rem;
+        display: block;
+        // height: 20rem;
+        transform: rotate(30deg) translateX(25rem) translateY(-3rem);
+      }
+      .links__links {
+        text-align: right;
+        width: 20rem;
+        transform: rotate(30deg) translateX(17rem) translateY(-14rem);
+        .links__link {
+          font-weight: $font-weight-bold;
+        }
+
+        .links__read {
+          p {
+            font-size: 2.5rem;
+            font-weight: $font-weight-bold;
+            transform: rotate(-30deg);
+            margin-bottom: 2rem;
+          }
+        }
+        .links__reading {
+          p {
+            font-size: 2.5rem;
+            font-weight: $font-weight-bold;
+            transform: rotate(-30deg);
+            margin-bottom: 4rem;
+          }
+        }
+        .links__want-to-read {
+          p {
+            font-size: 2.5rem;
+            font-weight: $font-weight-bold;
+            transform: rotate(-30deg);
+            margin-bottom: 4rem;
+          }
+        }
+        .links__search {
+          display: none;
+          p {
+            font-size: 4rem;
+          }
+        }
+        .links__logout {
+          font-size: 2.5rem;
+          font-weight: $font-weight-bold;
+          transform: rotate(-30deg);
+        }
+      }
+    }
+
+    .container__info {
+      display: none;
+
+      .info__header {
+      }
+      .info__sub-header {
+      }
+      .info__text {
+      }
+    }
+  }
+}
+
+// ------------------------------------------------------
+// Tablets - landscape
+@media (min-width: 768px) and (max-width: 1400px) and (orientation: landscape) {
+  .home__container {
+    height: 100vh;
+    background: url("../../img/paper.png");
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    .container__header {
+      .header__header {
+        font-size: 12rem;
+        position: static;
+        line-height: 7.2rem;
+        transform: rotate(0deg);
+        text-align: left;
+        padding-top: 15%;
+        padding-left: 10%;
+        padding-bottom: 2rem;
+      }
+
+      .header__sub-header {
+        font-size: 2.5rem;
+        color: $secondary-color;
+        font-weight: $font-weight-normal;
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+        padding-bottom: 7rem;
+        padding-left: 14.5%;
+      }
+    }
+
+    .container__mobile-search-button-container {
+      display: block;
+      text-align: left;
+      padding-left: 11%;
+
+      .mobile-search-button-container__mobile-search-button {
+        font-size: 3.5rem;
+        color: $secondary-color;
+        font-weight: $font-weight-bold;
+        padding: 1.5rem 4rem;
+        background-color: #fff;
+        border: 1px solid $primary-color;
+        border-radius: 5px;
+      }
+    }
+
+    .container__links {
+      position: absolute;
+      bottom: 0rem;
+      left: 0rem;
+      display: flex;
+      flex-direction: row-reverse;
+      transform: rotate(15deg);
+      margin-top: 20rem;
+      .links__img {
+        width: 70rem;
+        display: block;
+        // height: 20rem;
+        transform: rotate(30deg) translateX(45rem) translateY(-15rem);
+      }
+      .links__links {
+        text-align: right;
+        width: 20rem;
+        transform: rotate(30deg) translateX(37rem) translateY(-27rem);
+        .links__link {
+          font-weight: $font-weight-bold;
+        }
+
+        .links__read {
+          p {
+            font-size: 2.5rem;
+            font-weight: $font-weight-bold;
+            transform: rotate(-30deg);
+            margin-bottom: 2rem;
+          }
+        }
+        .links__reading {
+          p {
+            font-size: 2.5rem;
+            font-weight: $font-weight-bold;
+            transform: rotate(-30deg);
+            margin-bottom: 4rem;
+          }
+        }
+        .links__want-to-read {
+          p {
+            font-size: 2.5rem;
+            font-weight: $font-weight-bold;
+            transform: rotate(-30deg);
+            margin-bottom: 4rem;
+          }
+        }
+        .links__search {
+          display: none;
+          p {
+            font-size: 4rem;
+          }
+        }
+        .links__logout {
+          font-size: 2.5rem;
+          font-weight: $font-weight-bold;
+          transform: rotate(-30deg);
+        }
+      }
+    }
+
+    .container__info {
+      display: none;
+
+      .info__header {
+      }
+      .info__sub-header {
+      }
+      .info__text {
+      }
     }
   }
 }
