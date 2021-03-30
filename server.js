@@ -22,12 +22,12 @@ const auth = require("./routes/auth");
 app.use("/api/user", auth);
 
 //deploy to heroku
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(_dirname, "client/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "/client/build", "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+// app.use(express.static(path.resolve("client", "build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+});
+// }
 
 // server
 const PORT = process.env.PORT || 5000;
