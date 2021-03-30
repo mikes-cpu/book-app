@@ -15,11 +15,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
 
-// http requests
-app.get("/", varify, (req, res) => {
-  res.send("/ endpoint works");
-});
-
 const book = require("./routes/book");
 app.use("/api/book", book);
 
