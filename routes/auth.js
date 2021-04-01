@@ -60,6 +60,7 @@ router.post("/login", async (req, res) => {
 
   try {
     await res.send(req.body);
+    console.log(req.body);
     // // check if the email exists
     // const user = await User.findOne({ email: req.body.email });
     // if (!user) return res.status(400).send("Email inputted doesnt exist");
