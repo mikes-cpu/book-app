@@ -48,7 +48,7 @@ function App() {
       setJwt(finalString);
       console.log(finalString);
     } catch (error) {
-      console.log(error.message);
+      console.log("No authorisation code");
     }
   };
 
