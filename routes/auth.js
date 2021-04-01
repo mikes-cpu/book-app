@@ -53,6 +53,10 @@ router.post("/register", async (req, res) => {
   });
 });
 
+router.get("/test", (req, res) => {
+  res.send("THIS IS SHIT");
+});
+
 router.post("/login", async (req, res) => {
   // const { error } = loginValidation(req.body);
   // if (error)

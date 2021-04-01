@@ -24,15 +24,15 @@ function Landing({ jwt, getJwtAuth, setUserID }) {
   // login button click
   const handleClick = async (e) => {
     e.preventDefault();
-    console.log("shity");
     try {
       const user = {
         email,
         password,
       };
-      const login = await axios.post("/api/user/login", user);
-      console.log(login);
-      console.log(login.data);
+      // const login = await axios.post("/api/user/login", user);
+      const test = await axios.get("/api/user/test");
+      console.log(test);
+      // console.log(login.data);
       // setUserID(login.data.user);
       // getJwtAuth();
     } catch (error) {
