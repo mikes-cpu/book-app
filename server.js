@@ -7,31 +7,14 @@ const path = require("path");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config/config.env" });
 
-
-
 const connectDB = require("./config/db");
 connectDB();
 
+const cors = require("cors");
+app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded());
-
-// whitelist heroku url
-const whitelist = ['http://localhost:3000'​, 'http://localhost:5000'​, "https://skoob-site.herokuapp.com/"]
-const corsOptions = {
-  origin: function (origin, callback) {
-    console.log("** Origin of request " + origin)
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      console.log("Origin acceptable")
-      callback(null, true)
-    } else {
-      console.log("Origin rejected")
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
-
-const cors = require("cors");
-app.use(cors(corsOptions));
 
 const book = require("./routes/book");
 app.use("/api/book", book);
