@@ -29,12 +29,10 @@ function Landing({ jwt, getJwtAuth, setUserID }) {
         email,
         password,
       };
-      // const login = await axios.post("/api/user/login", user);
-      const test = await axios.get("/api/user/test");
-      console.log(test);
-      // console.log(login.data);
-      // setUserID(login.data.user);
-      // getJwtAuth();
+      const login = await axios.post("/api/user/login", user);
+      console.log(login.data);
+      setUserID(login.data.user);
+      getJwtAuth();
     } catch (error) {
       console.log(error.message);
     }
