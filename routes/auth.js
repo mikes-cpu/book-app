@@ -54,26 +54,27 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const { error } = loginValidation(req.body);
-  if (error)
-    return res.status(400).send(error.details.map((error) => error.message));
+  // const { error } = loginValidation(req.body);
+  // if (error)
+  //   return res.status(400).send(error.details.map((error) => error.message));
 
   try {
-    // check if the email exists
-    const user = await User.findOne({ email: req.body.email });
-    if (!user) return res.status(400).send("Email inputted doesnt exist");
-    // check if the password is correct
-    const validPass = await bcrypt.compare(req.body.password, user.password);
-    if (!validPass) return res.status(400).send("invaid password");
+    await res.send(req.body);
+    // // check if the email exists
+    // const user = await User.findOne({ email: req.body.email });
+    // if (!user) return res.status(400).send("Email inputted doesnt exist");
+    // // check if the password is correct
+    // const validPass = await bcrypt.compare(req.body.password, user.password);
+    // if (!validPass) return res.status(400).send("invaid password");
 
-    // create and assign a token
-    const token = createToken(user._id);
+    // // create and assign a token
+    // const token = createToken(user._id);
 
-    res.cookie("jwt token", token, { httpOnly: true }); // 3 days
-    res.status(201).json({
-      user: user._id,
-      token: token,
-    });
+    // res.cookie("jwt token", token, { httpOnly: true }); // 3 days
+    // res.status(201).json({
+    //   user: user._id,
+    //   token: token,
+    // });
   } catch (error) {
     console.log(error.message);
   }

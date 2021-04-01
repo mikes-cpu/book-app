@@ -30,8 +30,8 @@ function Landing({ jwt, getJwtAuth, setUserID }) {
         password,
       };
       const login = await axios.post("/api/user/login", user);
-      console.log(login.data);
-      setUserID(login.data.user);
+      // console.log(login.data);
+      // setUserID(login.data.user);
       // getJwtAuth();
     } catch (error) {
       console.log(error.message);
