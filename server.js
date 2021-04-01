@@ -7,11 +7,11 @@ const path = require("path");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config/config.env" });
 
-const connectDB = require("./config/db");
-connectDB();
-
 const cors = require("cors");
 app.use(cors());
+
+const connectDB = require("./config/db");
+connectDB();
 
 app.use(express.json());
 app.use(express.urlencoded());
