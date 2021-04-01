@@ -59,7 +59,7 @@ router.post("/login", async (req, res) => {
   //   return res.status(400).send(error.details.map((error) => error.message));
 
   try {
-    await res.send(req.body);
+    res.send(req.body);
     console.log(req.body);
     // // check if the email exists
     // const user = await User.findOne({ email: req.body.email });
