@@ -58,21 +58,25 @@ router.post("/login", async (req, res) => {
   if (error)
     return res.status(400).send(error.details.map((error) => error.message));
 
-  // check if the email exists
-  const user = await User.findOne({ email: req.body.email });
-  if (!user) return res.status(400).send("Email inputted doesnt exist");
-  // check if the password is correct
-  const validPass = await bcrypt.compare(req.body.password, user.password);
-  if (!validPass) return res.status(400).send("invaid password");
+  try {
+    // check if the email exists
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) return res.status(400).send("Email inputted doesnt exist");
+    // check if the password is correct
+    const validPass = await bcrypt.compare(req.body.password, user.password);
+    if (!validPass) return res.status(400).send("invaid password");
 
-  // create and assign a token
-  const token = createToken(user._id);
+    // create and assign a token
+    const token = createToken(user._id);
 
-  res.cookie("jwt token", token, { httpOnly: true }); // 3 days
-  res.status(201).json({
-    user: user._id,
-    token: token,
-  });
+    res.cookie("jwt token", token, { httpOnly: true }); // 3 days
+    res.status(201).json({
+      user: user._id,
+      token: token,
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 router.get("/authorise", varify, async (req, res) => {
