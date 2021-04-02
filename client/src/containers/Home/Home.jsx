@@ -49,7 +49,9 @@ function Home({ jwt, setJwt, setUserID, userID }) {
             </Link>
           </div>
           <div className="container__links">
-            <img className="links__img" src={orangeHouseImg} alt="" />
+            <div className="links__img-container">
+              <img className="img-container__img" src={orangeHouseImg} alt="" />
+            </div>
             <div className="links__links">
               <Link to="/read-books" className="links__link links__read">
                 <p>READ</p>

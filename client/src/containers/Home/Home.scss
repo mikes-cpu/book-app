@@ -31,9 +31,12 @@
     left: -24rem;
     display: flex;
     transform: rotate(-60deg);
-    .links__img {
+    .links__img-container {
       width: 70rem;
-      transform: rotate(90deg);
+      .img-container__img {
+        width: 100%;
+        transform: rotate(90deg);
+      }
     }
     .links__links {
       display: flex;
@@ -158,11 +161,14 @@
       flex-direction: row-reverse;
       transform: rotate(15deg);
       margin-top: 20rem;
-      .links__img {
-        width: 30rem !important;
-        display: block !important;
-        // height: 20rem;
-        transform: rotate(30deg) translateX(7rem) translateY(-3rem) !important;
+      .links__img-container {
+        width: 40rem !important;
+        .img-container__img {
+          width: 100% !important;
+          display: block !important;
+          // height: 20rem;
+          transform: rotate(30deg) translateX(7rem) translateY(-1rem) !important;
+        }
       }
       .links__links {
         text-align: right;
@@ -270,11 +276,14 @@
       flex-direction: row-reverse;
       transform: rotate(15deg);
       margin-top: 20rem;
-      .links__img {
+      .links__img-container {
         width: 60rem;
-        display: block;
-        // height: 20rem;
-        transform: rotate(30deg) translateX(25rem) translateY(-3rem);
+        .img-container__img {
+          width: 100%;
+          display: block;
+          // height: 20rem;
+          transform: rotate(30deg) translateX(25rem) translateY(-3rem);
+        }
       }
       .links__links {
         text-align: right;
@@ -392,12 +401,16 @@
       flex-direction: row-reverse;
       transform: rotate(15deg);
       margin-top: 20rem;
-      .links__img {
+      .links__img-container {
         width: 70rem;
-        display: block;
-        // height: 20rem;
-        transform: rotate(30deg) translateX(45rem) translateY(-15rem);
+        .img-container__img {
+          width: 100%;
+          display: block;
+          // height: 20rem;
+          transform: rotate(30deg) translateX(45rem) translateY(-15rem);
+        }
       }
+
       .links__links {
         text-align: right;
         width: 20rem;
