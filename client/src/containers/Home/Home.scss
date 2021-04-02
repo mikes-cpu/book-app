@@ -159,10 +159,10 @@
       transform: rotate(15deg);
       margin-top: 20rem;
       .links__img {
-        width: 30rem;
-        display: block;
+        width: 30rem !important;
+        display: block !important;
         // height: 20rem;
-        transform: rotate(30deg) translateX(7rem) translateY(-3rem);
+        transform: rotate(30deg) translateX(7rem) translateY(-3rem) !important;
       }
       .links__links {
         text-align: right;
