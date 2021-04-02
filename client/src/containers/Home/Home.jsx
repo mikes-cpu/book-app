@@ -41,13 +41,13 @@ function Home({ jwt, setJwt, setUserID, userID }) {
             <h1 className="header__header">HOME</h1>
             <h2 className="header__sub-header">"WELCOME TO SKOOB!</h2>
           </div>
-          <div className="container__mobile-search-button-container">
-            <Link to="/search" className="links__link links__search">
+          <Link to="/search" className="links__link links__search">
+            <div className="container__mobile-search-button-container">
               <button className="mobile-search-button-container__mobile-search-button">
                 BOOK SEARCH
               </button>
-            </Link>
-          </div>
+            </div>
+          </Link>
           <div className="container__links">
             <div className="links__img-container">
               <img className="img-container__img" src={orangeHouseImg} alt="" />

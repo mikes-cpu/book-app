@@ -21,6 +21,7 @@
 
   .container__mobile-search-button-container {
     display: none;
+
     .mobile-search-button-container__mobile-search-button {
     }
   }
@@ -33,44 +34,48 @@
     transform: rotate(-60deg);
     .links__img-container {
       width: 70rem;
+      margin-right: -8rem;
       .img-container__img {
         width: 100%;
-        transform: rotate(90deg);
+        transform: rotate(90deg) translateX(5rem);
       }
     }
     .links__links {
       display: flex;
       flex-direction: column;
-      margin-left: 2rem;
-
+      margin-left: 1rem;
       .links__link {
         font-size: 7rem;
         color: $primary-color;
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
       }
 
       .links__read {
         p {
           font-size: 7rem;
           color: $primary-color;
+          margin-bottom: 2rem;
         }
       }
       .links__reading {
         p {
           font-size: 7rem;
           color: $primary-color;
+          margin-bottom: 2rem;
         }
       }
       .links__want-to-read {
         p {
           font-size: 7rem;
           color: $primary-color;
+          margin-bottom: 2rem;
         }
       }
       .links__search {
         p {
           font-size: 7rem;
           color: $secondary-color;
+          margin-bottom: 2rem;
         }
       }
       .links__logout {
@@ -378,7 +383,7 @@
     }
 
     .container__mobile-search-button-container {
-      display: block;
+      display: inline;
       text-align: left;
       padding-left: 11%;
 
@@ -404,17 +409,23 @@
       .links__img-container {
         width: 70rem;
         .img-container__img {
+          position: absolute;
+          bottom: 0;
+          right: -70rem;
           width: 100%;
           display: block;
           // height: 20rem;
-          transform: rotate(30deg) translateX(45rem) translateY(-15rem);
+          transform: rotate(30deg) translateX(0rem) translateY(-0rem);
         }
       }
 
       .links__links {
+        position: absolute;
+        left: 50rem;
+        top: -55rem;
         text-align: right;
         width: 20rem;
-        transform: rotate(30deg) translateX(37rem) translateY(-27rem);
+        transform: rotate(30deg) translateX(0rem) translateY(-0rem);
         .links__link {
           font-weight: $font-weight-bold;
         }
