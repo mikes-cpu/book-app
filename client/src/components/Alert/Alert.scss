@@ -17,3 +17,25 @@
     color: white;
   }
 }
+
+// ------------------------------------------------------
+// Mobile Phone
+@media (max-width: 500px) {
+  .alert__container {
+    p {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+  }
+}
+
+// ------------------------------------------------------
+// Tablets - portrait
+@media (min-width: 501px) and (max-width: 1024px) {
+  .alert__container {
+    p {
+      font-size: 2rem;
+      line-height: 2.4rem;
+    }
+  }
+}
