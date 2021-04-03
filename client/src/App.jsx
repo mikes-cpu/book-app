@@ -19,7 +19,9 @@ function App() {
   const [selectedBook, setSelectedBook] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const [jwt, setJwt] = useState("");
-  const [userID, setUserID] = useState("shit");
+  const [userID, setUserID] = useState("");
+  const [searchApiLoading, setSearchApiLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     if (search) {
@@ -29,8 +31,12 @@ function App() {
             `https://www.googleapis.com/books/v1/volumes?q=${search}`
           );
           let response = await url.json();
-          setApiResponse(response.items);
+          response.items
+            ? setApiResponse(response.items)
+            : setApiResponse(undefined);
+
           console.log(apiResponse);
+          setSearchApiLoading(true);
         } catch (error) {
           console.log("There was an error");
         }
@@ -63,6 +69,8 @@ function App() {
         getJwtAuth={getJwtAuth}
         jwt={jwt}
         setUserID={setUserID}
+        message={message}
+        setMessage={setMessage}
       />
       <Home
         path="home"
@@ -72,6 +80,8 @@ function App() {
         apiResponse={apiResponse}
         setUserID={setUserID}
         userID={userID}
+        message={message}
+        setMessage={setMessage}
       />
       <Signup
         setJwt={setJwt}
@@ -79,6 +89,8 @@ function App() {
         path="signup"
         getJwtAuth={getJwtAuth}
         setUserID={setUserID}
+        message={message}
+        setMessage={setMessage}
       />
       <Search
         path="search"
@@ -86,28 +98,47 @@ function App() {
         setSearch={setSearch}
         setUserID={setUserID}
         userID={userID}
+        searchApiLoading={searchApiLoading}
+        message={message}
+        setMessage={setMessage}
       />
       <ReadBooks
         path="read-books"
         setSelectedBook={setSelectedBook}
         setUserID={setUserID}
         userID={userID}
+        message={message}
       />
-      <ReadBooksCard path="read-books/book" selectedBook={selectedBook} />
+      <ReadBooksCard
+        path="read-books/book"
+        selectedBook={selectedBook}
+        setMessage={setMessage}
+        message={message}
+      />
       <ReadingBooks
         path="reading-books"
         setSelectedBook={setSelectedBook}
         setUserID={setUserID}
         userID={userID}
       />
-      <ReadingBooksCard path="reading-books/book" selectedBook={selectedBook} />
+      <ReadingBooksCard
+        path="reading-books/book"
+        selectedBook={selectedBook}
+        setMessage={setMessage}
+        message={message}
+      />
       <WantToBooks
         path="want-to-books"
         setSelectedBook={setSelectedBook}
         setUserID={setUserID}
         userID={userID}
       />
-      <WantToBooksCard path="want-to-books/book" selectedBook={selectedBook} />
+      <WantToBooksCard
+        path="want-to-books/book"
+        selectedBook={selectedBook}
+        setMessage={setMessage}
+        message={message}
+      />
     </Router>
   );
 }

@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./SearchBookCard.scss";
 import axios from "axios";
 import chevron from "../../img/chevron_down.png";
+import noimagefound from "../../img/no-image.png";
 
-function SearchBookCard({ book, userID, setUserID }) {
+function SearchBookCard({ book, userID, setUserID, setMessage }) {
   const [bookDb, setBookDb] = useState({});
   const [classExpanded, setClassExpanded] = useState(false);
 
@@ -52,8 +53,11 @@ function SearchBookCard({ book, userID, setUserID }) {
           <div className="container__thumbnail">
             <img
               className="thumbnail__img"
-              src={book.volumeInfo.imageLinks.thumbnail}
-              alt=""
+              src={
+                book.volumeInfo.imageLinks === undefined
+                  ? noimagefound
+                  : `${book.volumeInfo.imageLinks.thumbnail}`
+              }
             />
           </div>
           <div className="container__info">
@@ -63,16 +67,25 @@ function SearchBookCard({ book, userID, setUserID }) {
           <div className="container__buttons">
             <button
               onClick={() => {
-                setBookDb({
-                  userID: userID,
-                  title: book.volumeInfo.title,
-                  author: book.volumeInfo.authors,
-                  thumbnail: book.volumeInfo.imageLinks.thumbnail,
-                  category: book.volumeInfo.categories,
-                  listType: "read",
-                  notes: "",
-                });
-                // handelClick();
+                book.volumeInfo.imageLinks === undefined
+                  ? setBookDb({
+                      userID: userID,
+                      title: book.volumeInfo.title,
+                      author: book.volumeInfo.authors,
+                      category: book.volumeInfo.categories,
+                      listType: "read",
+                      notes: "",
+                    })
+                  : setBookDb({
+                      userID: userID,
+                      title: book.volumeInfo.title,
+                      author: book.volumeInfo.authors,
+                      thumbnail: book.volumeInfo.imageLinks.thumbnail,
+                      category: book.volumeInfo.categories,
+                      listType: "read",
+                      notes: "",
+                    });
+                setMessage(`${book.volumeInfo.title} added to read list`);
               }}
               className="button__read"
             >
@@ -80,16 +93,25 @@ function SearchBookCard({ book, userID, setUserID }) {
             </button>
             <button
               onClick={() => {
-                setBookDb({
-                  userID: userID,
-                  title: book.volumeInfo.title,
-                  author: book.volumeInfo.authors,
-                  thumbnail: book.volumeInfo.imageLinks.thumbnail,
-                  category: book.volumeInfo.categories,
-                  listType: "reading",
-                  notes: "",
-                });
-                // handelClick();
+                book.volumeInfo.imageLinks === undefined
+                  ? setBookDb({
+                      userID: userID,
+                      title: book.volumeInfo.title,
+                      author: book.volumeInfo.authors,
+                      category: book.volumeInfo.categories,
+                      listType: "reading",
+                      notes: "",
+                    })
+                  : setBookDb({
+                      userID: userID,
+                      title: book.volumeInfo.title,
+                      author: book.volumeInfo.authors,
+                      thumbnail: book.volumeInfo.imageLinks.thumbnail,
+                      category: book.volumeInfo.categories,
+                      listType: "reading",
+                      notes: "",
+                    });
+                setMessage(`${book.volumeInfo.title} added to reading list`);
               }}
               className="button__reading"
             >
@@ -97,16 +119,27 @@ function SearchBookCard({ book, userID, setUserID }) {
             </button>
             <button
               onClick={() => {
-                setBookDb({
-                  userID: userID,
-                  title: book.volumeInfo.title,
-                  author: book.volumeInfo.authors,
-                  thumbnail: book.volumeInfo.imageLinks.thumbnail,
-                  category: book.volumeInfo.categories,
-                  listType: "want_to",
-                  notes: "",
-                });
-                // handelClick();
+                book.volumeInfo.imageLinks === undefined
+                  ? setBookDb({
+                      userID: userID,
+                      title: book.volumeInfo.title,
+                      author: book.volumeInfo.authors,
+                      category: book.volumeInfo.categories,
+                      listType: "want_to",
+                      notes: "",
+                    })
+                  : setBookDb({
+                      userID: userID,
+                      title: book.volumeInfo.title,
+                      author: book.volumeInfo.authors,
+                      thumbnail: book.volumeInfo.imageLinks.thumbnail,
+                      category: book.volumeInfo.categories,
+                      listType: "want_to",
+                      notes: "",
+                    });
+                setMessage(
+                  `${book.volumeInfo.title} added to want to read list`
+                );
               }}
               className="button__wantTo"
             >

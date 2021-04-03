@@ -1,20 +1,30 @@
-import React from "react";
+import { invalid } from "joi";
+import React, { useEffect, useState } from "react";
 import BookCard from "../BookCard/BookCard";
 import "./BookCardList.scss";
 
-function BookCardList({ allBooks, setSelectedBook }) {
-  console.log(allBooks);
-  return !allBooks ? (
-    <>
-      <h2>Please add some read books</h2>
-    </>
-  ) : (
+function BookCardList({ allBooks, setAllBooks, setSelectedBook }) {
+  // useEffect(() => {
+  //   console.log(allBooks);
+  //   if (allBooks.length == 3) {
+  //     console.log("yep");
+  //   } else {
+  //     console.log("Nope");
+  //   }
+
+  //   // setAllBooks();
+  // }, [allBooks]);
+  return (
     <>
       <div className="bookCardList">
         <div className="bookCardList__container">
-          {allBooks.map((book) => (
-            <BookCard setSelectedBook={setSelectedBook} book={book} />
-          ))}
+          {allBooks ? (
+            allBooks.map((book) => (
+              <BookCard setSelectedBook={setSelectedBook} book={book} />
+            ))
+          ) : (
+            <h2>Please add some read books</h2>
+          )}
         </div>
       </div>
     </>

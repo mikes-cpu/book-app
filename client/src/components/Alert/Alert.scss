@@ -1,0 +1,19 @@
+@import "../../variables.scss";
+
+.alert__container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background-color: $secondary-color;
+  padding: 2rem;
+  // border-bottom-right-radius: 2%;
+  // border-bottom-left-radius: 2%;
+  z-index: 1;
+
+  p {
+    font-size: 4rem;
+    color: white;
+  }
+}

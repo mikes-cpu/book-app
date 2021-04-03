@@ -40,7 +40,7 @@ router.post("/register", async (req, res) => {
     const savedUser = await user.save();
     console.log(savedUser);
   } catch (error) {
-    res.status(400).send(error);
+    res.status(400).send(error.message).send("shitbags");
   }
 
   // create and assign a token

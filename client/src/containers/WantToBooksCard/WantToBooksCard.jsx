@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./WantToBooksCard.scss";
 import axios from "axios";
 import { Link, navigate } from "@reach/router";
 import backIMG from "../../img/back-img.svg";
+import Alert from "../../components/Alert/Alert";
 
-function WantToBooksCard({ selectedBook }) {
+function WantToBooksCard({ selectedBook, message, setMessage }) {
   const [notes, setNotes] = useState(
     selectedBook.notes === ""
       ? "Press the edit button to start writing notes for this book"
       : selectedBook.notes
   );
   const [editClicked, setEditClicked] = useState(false);
+  const [content, setContent] = useState("");
   console.log(notes);
 
   const patchClickHandler = async (e) => {
@@ -21,6 +23,8 @@ function WantToBooksCard({ selectedBook }) {
       });
       console.log(response);
       setEditClicked(false);
+      setMessage(`${selectedBook.title}s notes were updated!`);
+      setTimeout(() => setMessage(""), 4000);
     } catch (err) {
       console.log(err.message);
     }
@@ -32,7 +36,9 @@ function WantToBooksCard({ selectedBook }) {
         listType: "read",
       });
       console.log(response);
-      navigate("/read-books");
+      setMessage(`Book has been sucessfully moved to read books!`);
+      setTimeout(() => navigate("/want-to-books"), 3500);
+      setTimeout(() => setMessage(""), 5000);
     } catch (err) {
       console.log(err.message);
     }
@@ -44,7 +50,9 @@ function WantToBooksCard({ selectedBook }) {
         listType: "reading",
       });
       console.log(response);
-      navigate("/reading-books");
+      setMessage(`Book has been sucessfully moved to reading books!`);
+      setTimeout(() => navigate("/want-to-books"), 3500);
+      setTimeout(() => setMessage(""), 5000);
     } catch (err) {
       console.log(err.message);
     }
@@ -54,16 +62,30 @@ function WantToBooksCard({ selectedBook }) {
     try {
       const response = await axios.delete(`/api/book/${selectedBook._id}`);
       console.log(response);
-      navigate("/want-to-books");
+      setMessage(
+        `Book has been sucessfully deleted, redirecting to want to books!`
+      );
+      setTimeout(() => navigate("/want-to-books"), 3500);
+      setTimeout(() => setMessage(""), 5000);
     } catch (err) {
       console.log(`error: ${err.message}`);
     }
+  };
+
+  useEffect(() => {
+    updateMessage();
+  }, [message]);
+
+  const updateMessage = () => {
+    let theMessage = message ? <Alert message={message} /> : "";
+    setContent(theMessage);
   };
 
   return editClicked == false ? (
     <>
       <div className="want-to-books-card">
         <div className="want-to-books-card__container">
+          {content ? content : ""}
           <div className="container__header">
             <div className="header__book-details">
               <h2 className="book-details__title">{selectedBook.title}</h2>

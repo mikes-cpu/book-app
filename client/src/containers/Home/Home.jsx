@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import "./Home.scss";
 import orangeHouseImg from "../../img/orange-house.png";
 import axios from "axios";
+import Alert from "../../components/Alert/Alert";
 
-function Home({ jwt, setJwt, setUserID, userID }) {
+function Home({ jwt, setJwt, setUserID, userID, message, setMessage }) {
   // set user id
   const getCurrentUser = async () => {
     try {
@@ -24,7 +25,11 @@ function Home({ jwt, setJwt, setUserID, userID }) {
     // e.preventDefault();
     const cookie = await axios.get("/api/user/logout");
     console.log(cookie);
-    setJwt("");
+    setMessage("You have successfully logged out!");
+    setTimeout(() => setMessage(""), 4500);
+    setTimeout(() => {
+      setJwt("");
+    }, 4000);
   };
 
   useEffect(() => {
@@ -33,10 +38,22 @@ function Home({ jwt, setJwt, setUserID, userID }) {
     }
   }, [jwt]);
 
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    updateMessage();
+  }, [message]);
+
+  const updateMessage = () => {
+    let theMessage = message ? <Alert message={message} /> : "";
+    setContent(theMessage);
+  };
+
   return (
     <>
       <div className="home">
         <div className="home__container">
+          {content ? content : ""}
           <div className="container__header">
             <h1 className="header__header">HOME</h1>
             <h2 className="header__sub-header">"WELCOME TO SKOOB!</h2>

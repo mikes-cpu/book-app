@@ -4,8 +4,9 @@ import "./Landing.scss";
 import corner1 from "../../img/top-right.png";
 import corner2 from "../../img/bottom-right.png";
 import axios from "axios";
+import Alert from "../../components/Alert/Alert";
 
-function Landing({ jwt, getJwtAuth, setUserID }) {
+function Landing({ jwt, getJwtAuth, setUserID, message, setMessage }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -34,14 +35,27 @@ function Landing({ jwt, getJwtAuth, setUserID }) {
       setUserID(login.data.user);
       getJwtAuth();
     } catch (error) {
-      console.log(error.message);
+      setMessage("Either Email or Password was entered incorrectly");
+      setTimeout(() => setMessage(""), 5000);
     }
+  };
+
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    updateMessage();
+  }, [message]);
+
+  const updateMessage = () => {
+    let theMessage = message ? <Alert message={message} /> : "";
+    setContent(theMessage);
   };
 
   return (
     <>
       <div className="landing">
         <div className="landing__container">
+          {content ? content : ""}
           <div className="container__header">
             <h3 className="header__sub-header">
               "REMEMBER THE BOOKS IMPORTANT TO YOU!"

@@ -2,7 +2,7 @@
 
 .search-Book-card__container {
   position: relative;
-  border: 1px solid black;
+  border: 1px solid rgb(153, 153, 153);
   border-radius: 1rem;
   width: 30rem;
   text-align: center;
@@ -14,6 +14,7 @@
   .container__thumbnail {
     .thumbnail__img {
       margin-top: 4rem;
+      width: 13rem;
     }
   }
   .container__info {
@@ -49,9 +50,7 @@
       font-weight: $font-weight-normal;
       background-color: #fff;
       border: 1px solid grey;
-      color: transparent;
-      border: transparent;
-      background-color: transparent;
+      display: none;
     }
     .button__reading {
       width: 8rem;
@@ -60,9 +59,7 @@
       font-weight: $font-weight-normal;
       background-color: #fff;
       border: 1px solid grey;
-      color: transparent;
-      border: transparent;
-      background-color: transparent;
+      display: none;
     }
     .button__wantTo {
       width: 8rem;
@@ -70,9 +67,7 @@
       font-weight: $font-weight-normal;
       background-color: #fff;
       border: 1px solid grey;
-      color: transparent;
-      border: transparent;
-      background-color: transparent;
+      display: none;
     }
   }
 
@@ -105,19 +100,22 @@
   transform: translateY(4rem);
 
   .button__read {
+    display: block;
     color: black;
     border: grey 1px solid;
-    background-color: #fff;
+    background-color: $secondary-color;
   }
   .button__reading {
+    display: block;
     color: black;
     border: grey 1px solid;
-    background-color: #fff;
+    background-color: $secondary-color;
   }
   .button__wantTo {
+    display: block;
     color: black;
     border: grey 1px solid;
-    background-color: #fff;
+    background-color: $secondary-color;
   }
 }
 .container__expanded .container__chevron {

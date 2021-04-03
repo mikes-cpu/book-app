@@ -3,8 +3,9 @@ import "./Signup.scss";
 import clickIcon from "../../img/click-icon-blue.png";
 import { navigate, Redirect, redirectTo } from "@reach/router";
 import axios from "axios";
+import Alert from "../../components/Alert/Alert";
 
-function Signup({ setJwt, jwt, getJwtAuth, setUserID }) {
+function Signup({ setJwt, jwt, getJwtAuth, setUserID, message, setMessage }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,14 +35,28 @@ function Signup({ setJwt, jwt, getJwtAuth, setUserID }) {
       setUserID(register.data.user);
       getJwtAuth();
     } catch (err) {
-      console.log(err.message);
+      console.log(err.response.data.map((error) => error));
+      setMessage(err.response.data[0]);
+      setTimeout(() => setMessage(""), 4000);
     }
+  };
+
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    updateMessage();
+  }, [message]);
+
+  const updateMessage = () => {
+    let theMessage = message ? <Alert message={message} /> : "";
+    setContent(theMessage);
   };
 
   return (
     <>
       <div className="signup">
         <div className="signup__container">
+          {content ? content : ""}
           <div className="container__header">
             <h1 className="header__header header__sign">SIGN</h1>
             <h1 className="header__header header__up">UP</h1>

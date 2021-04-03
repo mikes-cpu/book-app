@@ -5,7 +5,7 @@ import BookCardList from "../../components/BookCardList";
 import "./ReadBooks.scss";
 
 function ReadBooks({ setSelectedBook, setUserID, userID }) {
-  const [allBooks, setAllBooks] = useState();
+  const [allBooks, setAllBooks] = useState("");
   const [loading, setLoading] = useState(false);
 
   // set user id
@@ -36,7 +36,6 @@ function ReadBooks({ setSelectedBook, setUserID, userID }) {
       });
       console.log(filtered);
       setAllBooks(usersBooks);
-      console.log(filtered);
       setLoading(true);
     } catch (err) {
       console.log(err.message);
@@ -65,6 +64,7 @@ function ReadBooks({ setSelectedBook, setUserID, userID }) {
             {loading ? (
               <BookCardList
                 allBooks={allBooks}
+                setAllBooks={setAllBooks}
                 setSelectedBook={setSelectedBook}
               />
             ) : (
