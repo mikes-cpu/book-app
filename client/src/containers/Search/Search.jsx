@@ -30,12 +30,6 @@ function Search({
     setContent("");
   };
 
-  // prevents zooming in on search bar
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   return (
     <>
       <div className="search">
