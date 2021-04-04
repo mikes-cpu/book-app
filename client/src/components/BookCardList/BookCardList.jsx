@@ -3,17 +3,21 @@ import React, { useEffect, useState } from "react";
 import BookCard from "../BookCard/BookCard";
 import "./BookCardList.scss";
 
-function BookCardList({ allBooks, setAllBooks, setSelectedBook }) {
+function BookCardList({
+  allBooks,
+  setAllBooks,
+  setSelectedBook,
+  getReadingBooks,
+}) {
   // useEffect(() => {
   //   console.log(allBooks);
-  //   if (allBooks.length == 3) {
-  //     console.log("yep");
+  //   allBooks = "";
+  //   if (allBooks === []) {
+  //     console.log("YES");
   //   } else {
-  //     console.log("Nope");
+  //     console.log("NO");
   //   }
-
-  //   // setAllBooks();
-  // }, [allBooks]);
+  // }, []);
   return (
     <>
       <div className="bookCardList">

@@ -1,4 +1,4 @@
-import { Link, navigate } from "@reach/router";
+import { Link, navigate, useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
 import "./Landing.scss";
 import corner1 from "../../img/top-right.png";
@@ -9,6 +9,12 @@ import Alert from "../../components/Alert/Alert";
 function Landing({ jwt, getJwtAuth, setUserID, message, setMessage }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // prevents zooming in on search bar
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   // navigate to home if there is a valid token upon opening landing page (logged in)
   useEffect(() => {

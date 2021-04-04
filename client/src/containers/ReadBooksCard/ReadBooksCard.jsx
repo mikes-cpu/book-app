@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ReadBooksCard.scss";
 import axios from "axios";
-import { Link, navigate } from "@reach/router";
+import { Link, navigate, useLocation } from "@reach/router";
 import backIMG from "../../img/back-img.svg";
 import Alert from "../../components/Alert/Alert";
 
@@ -13,6 +13,12 @@ function ReadBooksCard({ selectedBook, message, setMessage }) {
   );
   const [editClicked, setEditClicked] = useState(false);
   const [content, setContent] = useState("");
+
+  // prevents zooming in on search bar
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const patchClickHandler = async (e) => {
     e.preventDefault();

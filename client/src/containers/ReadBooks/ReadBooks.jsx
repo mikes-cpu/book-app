@@ -34,7 +34,7 @@ function ReadBooks({ setSelectedBook, setUserID, userID }) {
       const usersBooks = filtered.filter((book) => {
         return book.userID === userID;
       });
-      console.log(filtered);
+      console.log(usersBooks);
       setAllBooks(usersBooks);
       setLoading(true);
     } catch (err) {

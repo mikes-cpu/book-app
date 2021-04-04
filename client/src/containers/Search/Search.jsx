@@ -1,4 +1,4 @@
-import { navigate } from "@reach/router";
+import { navigate, useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
 import Alert from "../../components/Alert/Alert";
 import SearchBookCardList from "../../components/SearchBookCardList/SearchBookCardList";
@@ -29,6 +29,12 @@ function Search({
   const deleteMessage = () => {
     setContent("");
   };
+
+  // prevents zooming in on search bar
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>

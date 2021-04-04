@@ -1,7 +1,9 @@
 @import "../../variables.scss";
-
 .home__container {
+  overflow-y: hidden;
+
   height: 100vh;
+  overflow: hidden !important;
   background: url("../../img/paper.png");
   background-size: cover;
   .container__header {
@@ -31,10 +33,12 @@
     bottom: -4rem;
     left: -24rem;
     display: flex;
+
     transform: rotate(-60deg);
     .links__img-container {
       width: 70rem;
       margin-right: -8rem;
+
       .img-container__img {
         width: 100%;
         transform: rotate(90deg) translateX(5rem);

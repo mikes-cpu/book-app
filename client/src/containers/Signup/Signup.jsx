@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Signup.scss";
 import clickIcon from "../../img/click-icon-blue.png";
-import { navigate, Redirect, redirectTo } from "@reach/router";
+import { navigate, Redirect, redirectTo, useLocation } from "@reach/router";
 import axios from "axios";
 import Alert from "../../components/Alert/Alert";
 
@@ -40,6 +40,12 @@ function Signup({ setJwt, jwt, getJwtAuth, setUserID, message, setMessage }) {
       setTimeout(() => setMessage(""), 4000);
     }
   };
+
+  // prevents zooming in on search bar
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const [content, setContent] = useState("");
 

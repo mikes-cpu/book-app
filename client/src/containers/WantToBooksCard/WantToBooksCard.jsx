@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./WantToBooksCard.scss";
 import axios from "axios";
-import { Link, navigate } from "@reach/router";
+import { Link, navigate, useLocation } from "@reach/router";
 import backIMG from "../../img/back-img.svg";
 import Alert from "../../components/Alert/Alert";
 
@@ -14,6 +14,12 @@ function WantToBooksCard({ selectedBook, message, setMessage }) {
   const [editClicked, setEditClicked] = useState(false);
   const [content, setContent] = useState("");
   console.log(notes);
+
+  // prevents zooming in on search bar
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const patchClickHandler = async (e) => {
     e.preventDefault();

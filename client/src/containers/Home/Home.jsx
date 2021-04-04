@@ -1,4 +1,4 @@
-import { Link, navigate, Redirect } from "@reach/router";
+import { Link, navigate, Redirect, useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
 import "./Home.scss";
 import orangeHouseImg from "../../img/orange-house.png";
@@ -48,6 +48,16 @@ function Home({ jwt, setJwt, setUserID, userID, message, setMessage }) {
     let theMessage = message ? <Alert message={message} /> : "";
     setContent(theMessage);
   };
+
+  //Stop being able to scroll
+  useEffect(() => {
+    const stopScroll = () => {
+      window.addEventListener("scroll", () => {
+        window.scrollTo(0, 0);
+      });
+    };
+    stopScroll();
+  });
 
   return (
     <>
