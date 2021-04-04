@@ -1,19 +1,18 @@
 @import "../../variables.scss";
 .home__container {
-  overflow-y: hidden;
-
+  overflow: hidden;
   height: 100vh;
   overflow: hidden !important;
   background: url("../../img/paper.png");
   background-size: cover;
   .container__header {
     .header__header {
-      position: absolute;
-      right: -7rem;
-      top: 7rem;
+      // position: absolute;
+      // right: -7rem;
+      // top: 7rem;
       color: $secondary-color;
       line-height: 20.7rem;
-      transform: rotate(30deg);
+      transform: rotate(30deg) translateY(-24rem) translateX(110rem);
     }
 
     .header__sub-header {
@@ -29,12 +28,14 @@
   }
 
   .container__links {
-    position: absolute;
-    bottom: -4rem;
-    left: -24rem;
+    // position: absolute;
+    // bottom: -4rem;
+    // left: -24rem;
+    // margin-right: 120rem;
+    // margin-top: 30rem;
     display: flex;
 
-    transform: rotate(-60deg);
+    transform: rotate(-60deg) translateY(-40rem) translateX(-2rem);
     .links__img-container {
       width: 70rem;
       margin-right: -8rem;
