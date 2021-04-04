@@ -50,14 +50,14 @@ function Home({ jwt, setJwt, setUserID, userID, message, setMessage }) {
   };
 
   //Stop being able to scroll
-  useEffect(() => {
-    const stopScroll = () => {
-      window.addEventListener("scroll", () => {
-        window.scrollTo(0, 0);
-      });
-    };
-    stopScroll();
-  });
+  // useEffect(() => {
+  //   const stopScroll = () => {
+  //     window.addEventListener("scroll", () => {
+  //       window.scrollTo(0, 0);
+  //     });
+  //   };
+  //   stopScroll();
+  // });
 
   return (
     <>
