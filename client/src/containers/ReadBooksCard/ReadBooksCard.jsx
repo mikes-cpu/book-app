@@ -14,12 +14,6 @@ function ReadBooksCard({ selectedBook, message, setMessage }) {
   const [editClicked, setEditClicked] = useState(false);
   const [content, setContent] = useState("");
 
-  // prevents zooming in on search bar
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   const patchClickHandler = async (e) => {
     e.preventDefault();
     try {

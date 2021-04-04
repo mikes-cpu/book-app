@@ -41,12 +41,6 @@ function Signup({ setJwt, jwt, getJwtAuth, setUserID, message, setMessage }) {
     }
   };
 
-  // prevents zooming in on search bar
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   const [content, setContent] = useState("");
 
   useEffect(() => {
